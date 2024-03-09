@@ -9,7 +9,7 @@
 
 .container-login {
     position: relative;
-    width:100%;
+    width: 100%;
     height: 100vh;
     display: flex;
 }
@@ -76,14 +76,11 @@
     text-align: center;
 }
 
-
 .content-box .form-box .input-box {
     margin-bottom: 20px;
-    
 }
 
-.content-box .form-box .input-box input,
-.content-box .form-box .input-box select {
+.content-box .form-box .input-box input {
     width: 100%;
     padding: 10px;
     outline: none;
@@ -123,22 +120,6 @@
     background: #3286ca;
 }
 
-.gender-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.62rem;
-    margin-bottom: 0.62rem;
-    padding: 0 .5rem;
-}
-
-.local-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.62rem;
-    margin-bottom: 0.30rem;
-    padding: 0 .5rem;
-}
-
 .content-box .form-box .remember {
     margin-bottom: 20px;
     color: #32324f;
@@ -147,15 +128,14 @@
     cursor: pointer;
     display: flex;
     justify-content: space-between;
-
 }
 
-.content-box .form-box p a {
+.content-box .form-box .remember a {
     text-decoration: none;
     color: #4aa4ee;
 }
 
-.content-box .form-box a:hover {
+content-box .form-box.remember a:hover {
     color: #3286ca;
 }
 
@@ -167,7 +147,7 @@
     color: #4aa4ee;
 }
 
-.content-box .form-box .input-box p a:hover {
+.content-box .form-box.input-box p a:hover {
     color: #3286ca;
 }
 
@@ -179,8 +159,6 @@
     text-align: center;
     font-size: 20px;
 }
-
-
 
 @media (max-width:868px) {
     .container-login .img-box {
