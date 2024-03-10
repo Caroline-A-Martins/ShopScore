@@ -47,6 +47,8 @@ header {
     background: var(--text-color);
 }
 
+/*Inicio Navbar*/
+
 .logo img {
     width: 60px;
 }
@@ -122,17 +124,23 @@ header {
     font-weight: 500;
 }
 
+/*Final Navbar*/
+
+
+/*Inicio Home*/
 .home {
     width: 100%;
     min-width: 100vh;
     background: url(../img/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
     align-items: center;
     gap: 1.5rem;
 }
+
 
 .home-text h1 {
     font-size: 3.4rem;
@@ -144,12 +152,12 @@ header {
 .home-text p {
     font-size: 0.938rem;
     color: var(--bg-color);
-    margin: 0.5rem 0 1.4rem;
+    margin: .5rem 0 1.4rem;
 }
 
 .btn {
     padding: 10px 40px;
-    border-radius: 0.3rem;
+    border-radius: .3rem;
     background: var(--main-color);
     color: var(--bg-color);
     font-weight: 500;
@@ -159,3 +167,28 @@ header {
     background: #8a6f4d;
 }
 
+/*Final Home*/
+
+/* Inicio Sobre */
+
+.about {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+    align-items: center;
+    gap: 1.5rem;
+}
+.about-img img{
+    border-radius: .5rem;
+}
+
+.about-text h2{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.about-text p{
+    font-size: .938rem;
+    margin: .5rem 0 1.1rem;
+}
+
+/* Final Sobre */
