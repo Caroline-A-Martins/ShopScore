@@ -10,12 +10,11 @@
 /*variaveis*/
 :root {
     --main-color: #223555;
-    --img-color: #6fb2e9;
+    --img-color: #4aa4ee;
     --second-color: #768dc2;
     --text-color: #1b1b1b;
     --bg-color: #DFDDD1;
     --input-color: #ecf2f2;
-
     --box-shadow: 2px 2px 10px 4px #0e373626;
 }
 
@@ -33,6 +32,7 @@ body {
 
 .box {
     display: flex;
+
 }
 
 .img-box {
@@ -53,7 +53,7 @@ body {
 }
 
 .form-box h2 {
-    color: #32324f;
+    color: var(--text-color);
     font-weight: 600;
     font-size: 2em;
     text-transform: uppercase;
@@ -124,6 +124,8 @@ form .input-group button {
     color: white;
     cursor: pointer;
     font-size: 20px;
+    box-shadow: var(--box-shadow);
+    font-weight: 575;
 }
 
 form .input-group button:hover {
@@ -131,7 +133,7 @@ form .input-group button:hover {
 }
 
 .input-group p {
-    color: #32324f;
+    color: var(--text-color);
     text-align: center;
 }
 
