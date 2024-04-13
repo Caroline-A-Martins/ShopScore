@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopScore</title>
+    <title>ShopScore - Perfil do Usuário</title>
     <!-- BOX ICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.perfil.css">
-    <title>User Profile</title>
 </head>
 
 <body>
@@ -21,14 +20,13 @@
         <!-- Menu-Icon -->
         <i class='bx bx-menu' id="menu-icon"></i>
         <!-- Links -->
-
         <ul class="navbar">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">Sobre nós</a></li>
             <li><a href="#ranking">Ranking</a></li>
-            <li><a href="#customers">clientes</a></li>
+            <li><a href="#customers">Clientes</a></li>
         </ul>
-        <!--Icons-->
+        <!-- Icons -->
         <div class="header-icon">
             <i class="bx bx-search" id="search-icon"></i>
             <a href="#"><i class='bx bx-user'></i></a>
@@ -37,41 +35,41 @@
             <input type="search" name="" id="" placeholder="Pesquisa">
         </div>
     </header>
-
     <!-- Final Navbar -->
+
     <div class="container">
-        <!--Area com ft d perfil e de possiveis config do perfil-->
+        <!-- Area com foto de perfil e possíveis configurações do perfil -->
         <div class="profile-sidebar">
             <div class="profile-img">
                 <img src="../img/perfil.png" alt="User Profile Picture">
             </div>
             <h2>Nome Sobrenome</h2>
             <div class="profile-list">
-                
-                    <li><a href="#">Conta</a></li>
-                    <li><a href="#">Suporte</a></li>
-                    <li><a href="#">Segurança</a></li>
-                    <li><a href="#">Notificação</a></li>
-                    <li><a href="#">Feedback</a></li>
-                
+                <li><a href="account">Conta</a></li>
+                <li><a href="#">Suporte</a></li>
+                <li><a href="#">Segurança</a></li>
+                <li><a href="#">Notificação</a></li>
+                <li><a href="#">Feedback</a></li>
             </div>
         </div>
 
-        <!--Area com dados do usuario-->
+        <!-- Area com dados do usuário -->
         <div class="profile-main">
-            <h1>Dados Pessoais</h1>
-            <form>
-                <label for="firstName">Nome Completo:</label>
-                <input type="text" id="completeName" name="completeName" value="Nome Completo">
+            <section class="account" id="account">
+                <h1>Dados Pessoais</h1>
+                <form>
+                    <label for="completeName">Nome Completo:</label>
+                    <input type="text" id="completeName" name="completeName" value="Nome Completo">
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="vudungt92@gmail.com">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="vudungt92@gmail.com">
 
-                <label for="phone">Tel:</label>
-                <input type="tel" id="phone" name="phone" value="+91 9876543215">               
-                <button type="submit">Atulalizar</button>
-                <button type="button">Cancelar</button>
-            </form>
+                    <label for="phone">Tel:</label>
+                    <input type="tel" id="phone" name="phone" value="+91 9876543215">
+                    <button type="submit">Atualizar</button>
+                    <!-- <button type="button">Cancelar</button> -->
+                </form>
+            </section>
         </div>
     </div>
     <script src="../js/main.js"></script>

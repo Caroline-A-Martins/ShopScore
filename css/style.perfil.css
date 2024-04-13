@@ -25,6 +25,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    list-style: none;
 }
 
 header {
@@ -47,6 +48,9 @@ header.shadow {
     box-shadow: var(--box-shadow);
 }
 
+section{
+    width: 100%;
+}
 /*Inicio Navbar*/
 
 .logo span {
@@ -58,7 +62,7 @@ header.shadow {
 
 .navbar {
     display: flex;
-    
+    list-style: none;   
 }
 
 .navbar a {
@@ -66,8 +70,7 @@ header.shadow {
     color: var(--bg-color);
     font-size: 1rem;
     text-transform: uppercase;
-    font-weight: 500;
-    
+    font-weight: 500;   
 }
 
 .navbar a:hover {
