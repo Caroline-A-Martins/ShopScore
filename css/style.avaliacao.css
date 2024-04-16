@@ -133,5 +133,95 @@ header.shadow {
     font-weight: 500;
 }
 
-/*Final Navbar*/
+/*Inicio painel*/
+.painel {
+    width: 100%;
+    min-width: 100vh;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 180px 100px 100px;
+}
+
+.painel-text h1 {
+    font-size: 5rem;
+    color: var(--main-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/*Final painel*/
+
+/*colocar barra de pesq abaixo do titulo*/
+
+
+/*Inicio Feed*/
+#blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0, .05);
+}
+
+.blog-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+}
+
+.blog-card {
+    width: 350px;
+    background-color: #fff;
+    border: 1px solid #ececec;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.blog-img {
+    width: 100%;
+    height: auto;
+}
+
+.blog-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.blog-text {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-text {
+    color: #223555;
+    font-size: .9rem;
+}
+
+.blog-user {
+    display: flex;
+    padding: 10px 0px;
+}
+
+.blog-ft {
+    width: 20%;
+    margin-right: 10px;
+}
+
+.blog-ft img {
+    border-radius: 50%;
+}
+
+.blog-text p {
+    color: #9b9b9b;
+    font-size: .9rem;
+    display: -webkit-box;
+}
+
+/*Final Feed*/
+
+/*Responsividade*/
 
