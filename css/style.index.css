@@ -34,107 +34,6 @@ body {
     color: var(--text-color);
 }
 
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 100px;
-    transition: .5s linear;
-    background: var(--main-color);
-}
-
-header.shadow {
-    background: var(--main-color);
-    box-shadow: var(--box-shadow);
-}
-
-/*Inicio Navbar*/
-
-.logo span {
-    font-size: 2rem;
-    text-transform: uppercase;
-    color: var(--bg-color);
-    font-weight: 800;
-}
-
-.navbar {
-    display: flex;
-}
-
-.navbar a {
-    padding: 8px 17px;
-    color: var(--bg-color);
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.navbar a:hover {
-    background: var(--second-color);
-    border-radius: 0.5rem;
-    transition: 0.2s all linear;
-}
-
-.header-icon {
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 10000;
-    display: flex;
-    column-gap: 0.8rem;
-}
-
-.header-icon .bx {
-    color: var(--bg-color);
-}
-
-.header-icon .bx:hover {
-    color: var(--second-color);
-}
-
-#menu-icon {
-    color: var(--bg-color);
-    font-size: 24px;
-    z-index: 100001;
-    cursor: pointer;
-    display: none;
-}
-
-.search-box {
-    position: absolute;
-    top: -100%;
-    left: 50%;
-    transform: translate(-50%);
-    background: var(--bg-color);
-    width: 100%;
-}
-
-.search-box.active {
-    top: 110%;
-    box-shadow: var(--box-shadow);
-    transition: .2s all linear;
-}
-
-.search-box input {
-    padding: 20px;
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 1rem;
-    color: var(--main-color);
-}
-
-.search-box input::placeholder {
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-/*Final Navbar*/
-
 
 /*Inicio Home*/
 .home {
@@ -201,6 +100,7 @@ header.shadow {
     font-size: 1.3rem;
     margin: .5rem 0 1.1rem;
 }
+
 /* Final Sobre */
 
 /* Inicio Ranking */
@@ -384,17 +284,13 @@ header.shadow {
 
 .contact i {
     font-size: 20px;
-    margin-bottom: 1rem;   
+    margin-bottom: 1rem;
 }
 
 /* Final Footer */
 
 /* Responsividade */
 @media (max-width:1058px) {
-    header {
-        padding: 16px 60px;
-    }
-
     section {
         padding: 50px 60px;
     }
@@ -406,10 +302,6 @@ header.shadow {
 }
 
 @media (max-width:991px) {
-    header {
-        padding: 16px 4%;
-    }
-
     section {
         padding: 50px 4%;
     }
@@ -420,39 +312,6 @@ header.shadow {
 }
 
 @media (max-width:768px) {
-    header {
-        padding: 12px 4%;
-    }
-
-    #menu-icon {
-        display: initial;
-    }
-
-    .navbar {
-        position: absolute;
-        top: -570px;
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        background: var(--second-color);
-        row-gap: 1.4rem;
-        padding: 20px;
-        transition: .3s;
-        text-align: center;
-    }
-
-    .navbar a {
-        color: var(--text-color);
-    }
-
-    .navbar a:hover {
-        color: var(--bg-color);
-    }
-
-    .navbar.active {
-        top: 100%;
-    }
 
     .about {
         align-items: center;
@@ -460,13 +319,6 @@ header.shadow {
 }
 
 @media (max-width:360px) {
-    header {
-        padding: 11px 4%;
-    }
-
-    .logo img {
-        width: 45px;
-    }
 
     .home-text {
         padding-top: 15px;

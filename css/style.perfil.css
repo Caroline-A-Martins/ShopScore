@@ -26,113 +26,9 @@ body {
     align-items: center;
     justify-content: center;
     list-style: none;
-}
-
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 100px;
-    transition: .5s linear;
-    background: var(--main-color);
-    
-}
-
-header.shadow {
-    background: var(--main-color);
-    box-shadow: var(--box-shadow);
-}
-
-section{
+section {
     width: 100%;
 }
-/*Inicio Navbar*/
-
-.logo span {
-    font-size: 2rem;
-    text-transform: uppercase;
-    color: var(--bg-color);
-    font-weight: 800;
-}
-
-.navbar {
-    display: flex;
-    list-style: none;   
-}
-
-.navbar a {
-    padding: 8px 17px;
-    color: var(--bg-color);
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: 500;   
-}
-
-.navbar a:hover {
-    background: var(--second-color);
-    border-radius: 0.5rem;
-    transition: 0.2s all linear;
-}
-
-.header-icon {
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 10000;
-    display: flex;
-    column-gap: 0.8rem;
-}
-
-.header-icon .bx {
-    color: var(--bg-color);
-}
-
-.header-icon .bx:hover {
-    color: var(--second-color);
-}
-
-#menu-icon {
-    color: var(--bg-color);
-    font-size: 24px;
-    z-index: 100001;
-    cursor: pointer;
-    display: none;
-}
-
-.search-box {
-    position: absolute;
-    top: -100%;
-    left: 50%;
-    transform: translate(-50%);
-    background: var(--bg-color);
-    width: 100%;
-}
-
-.search-box.active {
-    top: 110%;
-    box-shadow: var(--box-shadow);
-    transition: .2s all linear;
-}
-
-.search-box input {
-    padding: 20px;
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 1rem;
-    color: var(--main-color);
-}
-
-.search-box input::placeholder {
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-/*Final Navbar*/
 
 .container {
     margin-top: 80px;
@@ -158,14 +54,15 @@ section{
 .profile-sidebar .profile-img img {
     width: 10em;
     border-radius: 50%;
-    
+
 }
+
 /*Arumando area do nome do usuario*/
 .profile-sidebar h2 {
     color: var(--text-color);
     font-weight: 700;
     font-size: 25px;
-    padding-bottom: 15px ;
+    padding-bottom: 15px;
     color: #efefef;
     text-align: center;
 }
@@ -177,7 +74,7 @@ section{
 }
 
 .profile-sidebar .profile-list li a {
-    color: var(--text-color); 
+    color: var(--text-color);
     padding: 10px 0;
     text-transform: uppercase;
     font-weight: 600;
@@ -185,7 +82,7 @@ section{
     color: #efefef;
 }
 
-.profile-list li a:hover{
+.profile-list li a:hover {
     color: var(--main-color);
 }
 
@@ -233,6 +130,7 @@ section{
 .profile-main button[type="submit"] {
     background-color: #3e88c5;
 }
+
 /*Final dados*/
 
 
