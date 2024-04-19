@@ -34,22 +34,16 @@ body {
     color: var(--text-color);
 }
 
-
 /*Inicio Home*/
 .home {
     width: 100%;
+    min-width: 100vh;
     background: #C8DBF5;
     text-align: center;
     gap: 1.5rem;
     padding: 180px 100px 100px;
 }
 
-.home-text {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-}
 
 .home-text h1 {
     font-size: 3.4rem;
@@ -81,32 +75,30 @@ body {
 /* Inicio Sobre */
 
 .about {
-    display: flex;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+    gap: 2rem;
+    padding: 100px 200px;
+    align-items: center;
 }
+
 
 .about-img img {
     border-radius: .5rem;
-    width: 450px;
-}
-
-.about-text {
-    padding-left: 50px;
-    width: 100%;
+    width: 95%;
+    margin-right: 50px;
 }
 
 .about-text h2 {
     font-size: 2.5rem;
     text-transform: uppercase;
     color: var(--text-color);
-
 }
 
 .about-text p {
-    font-size: 1.25rem;
-    margin: .5rem 0 .5rem;
+    font-size: 1.3rem;
+    margin: .5rem 0 1.1rem;
 }
-
 /* Final Sobre */
 
 /* Inicio Ranking */
@@ -290,13 +282,17 @@ body {
 
 .contact i {
     font-size: 20px;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem;   
 }
 
 /* Final Footer */
 
 /* Responsividade */
 @media (max-width:1058px) {
+    header {
+        padding: 16px 60px;
+    }
+
     section {
         padding: 50px 60px;
     }
@@ -308,16 +304,53 @@ body {
 }
 
 @media (max-width:991px) {
+    header {
+        padding: 16px 4%;
+    }
+
     section {
         padding: 50px 4%;
     }
 
-    .home-text h2 {
-        font-size: .4rem;
+    .home-text h1 {
+        font-size: 2.4rem;
     }
 }
 
 @media (max-width:768px) {
+    header {
+        padding: 12px 4%;
+    }
+
+    #menu-icon {
+        display: initial;
+    }
+
+    .navbar {
+        position: absolute;
+        top: -570px;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--second-color);
+        row-gap: 1.4rem;
+        padding: 20px;
+        transition: .3s;
+        text-align: center;
+    }
+
+    .navbar a {
+        color: var(--text-color);
+    }
+
+    .navbar a:hover {
+        color: var(--bg-color);
+    }
+
+    .navbar.active {
+        top: 100%;
+    }
 
     .about {
         align-items: center;
@@ -325,6 +358,13 @@ body {
 }
 
 @media (max-width:360px) {
+    header {
+        padding: 11px 4%;
+    }
+
+    .logo img {
+        width: 45px;
+    }
 
     .home-text {
         padding-top: 15px;
