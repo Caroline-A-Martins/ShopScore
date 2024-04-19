@@ -38,13 +38,18 @@ body {
 /*Inicio Home*/
 .home {
     width: 100%;
-    min-width: 100vh;
     background: #C8DBF5;
     text-align: center;
     gap: 1.5rem;
     padding: 180px 100px 100px;
 }
 
+.home-text {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
 
 .home-text h1 {
     font-size: 3.4rem;
@@ -76,29 +81,30 @@ body {
 /* Inicio Sobre */
 
 .about {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
-    gap: 2rem;
-    padding: 100px 200px;
-    align-items: center;
+    display: flex;
+    width: 100%;
 }
-
 
 .about-img img {
     border-radius: .5rem;
-    width: 95%;
-    margin-right: 50px;
+    width: 450px;
+}
+
+.about-text {
+    padding-left: 50px;
+    width: 100%;
 }
 
 .about-text h2 {
     font-size: 2.5rem;
     text-transform: uppercase;
     color: var(--text-color);
+
 }
 
 .about-text p {
-    font-size: 1.3rem;
-    margin: .5rem 0 1.1rem;
+    font-size: 1.25rem;
+    margin: .5rem 0 .5rem;
 }
 
 /* Final Sobre */
@@ -306,8 +312,8 @@ body {
         padding: 50px 4%;
     }
 
-    .home-text h1 {
-        font-size: 2.4rem;
+    .home-text h2 {
+        font-size: .4rem;
     }
 }
 
