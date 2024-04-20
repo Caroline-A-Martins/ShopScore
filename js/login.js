@@ -6,7 +6,7 @@ function login () {
         password: password,
         type: 1
     };
-    axios.post('http://localhost:3000/api/login', data)
+    axios.post('https://c13a-177-94-22-233.ngrok-free.app/api/login', data)
         .then(function (response) {
             console.log(response.data);
             if (response.data.success === true) {
