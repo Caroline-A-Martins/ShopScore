@@ -37,10 +37,22 @@ body {
 
 /*Inicio painel*/
 .painel {
-    padding-top: 180px ;
+    padding-top: 130px;
     margin: 20px auto;
+    text-align: center;
+    width: 100%;
 }
+
+.painel-text h1 {
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: var(--main-color);
+    text-transform: uppercase;
+
+}
+
 /*Final painel*/
+
 /*Inicio Barra de Pesq*/
 .search {
     display: flex;
@@ -62,13 +74,11 @@ body {
     outline: none;
 }
 
-.search label{
+.search label {
     height: 20px;
 }
+
 /*Final Barra de Pesq*/
-
-
-
 
 /*Inicio Feed*/
 #blog {
@@ -113,20 +123,29 @@ body {
     padding: 30px;
     display: flex;
     flex-direction: column;
+    color: #223555;
+    font-size: .8rem;
 }
 
-.blog-text {
-    color: #223555;
-    font-size: .9rem;
+.blog-title {
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.35rem;
 }
+
 
 .blog-user {
     display: flex;
-    padding: 10px 0px;
+    padding: 3.5px 0px;
+}
+
+.blog-user h1 {
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .blog-ft {
-    width: 20%;
+    width: 40px;
     margin-right: 10px;
 }
 
@@ -137,8 +156,21 @@ body {
 .blog-text p {
     color: #9b9b9b;
     font-size: .9rem;
-    display: -webkit-box;
+    margin-bottom: 5px;
 }
+
+.blog-text .ver-mais {
+    color: var(--bg-color);
+    font-size: .9rem;
+    background: var(--main-color);
+    width: 35%;
+    border-radius: 6px;
+    padding: 5px;
+    text-align: center;
+
+}
+
+
 
 /*Final Feed*/
 
