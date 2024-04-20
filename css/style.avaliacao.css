@@ -40,11 +40,34 @@ body {
     padding-top: 180px ;
     margin: 20px auto;
 }
-
-
 /*Final painel*/
+/*Inicio Barra de Pesq*/
+.search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    background-color: #00000006;
+    width: 500px;
+    margin: 20px auto;
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #4b4b4b4b;
+}
 
-/*colocar barra de pesq abaixo do titulo*/
+#searchInput {
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+}
+
+.search label{
+    height: 20px;
+}
+/*Final Barra de Pesq*/
+
+
 
 
 /*Inicio Feed*/
