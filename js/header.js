@@ -15,12 +15,27 @@ class Header extends HTMLElement {
                     <li><a href="#ranking">Ranking</a></li>
                     <li><a href="#customers">clientes</a></li>
                 </ul>
-                <!--Icons-->
-                <div class="header-icon">
-                    <a href="pag-perfil.html"><i class='bx bx-user'></i></a>
-                </div>
-                <div class="search-box">
-                    <input type="search" name="" id="" placeholder="Pesquisa">
+                <img src="../img/perfil.png" class="user-pic" onclick="toggleMenu()">
+
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <img src="../img/perfil.png">
+                            <h2>Nome de Usuario</h2>
+                        </div>
+                        <hr>
+        
+                        <a href="../html/pag-perfil.html" class="sub-menu-link">
+                            <i class='bx bx-user'></i>
+                            <p>Edite Perfil</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <i class='bx bxs-exit'></i>
+                            <p>Logout</p>
+                            <span>></span>
+                        </a>
+                    </div>
                 </div>
             </header>
             <!-- Final Navbar -->`;
