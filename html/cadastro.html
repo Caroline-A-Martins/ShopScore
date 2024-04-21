@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.cadastro.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Cadastro</title>
 </head>
 
@@ -30,17 +31,16 @@
 
                 <div class="input-group">
                     <label for="text">CPF</label>
-                    <input type="text" id="cpf"  
-                    placeholder="XXX.XXX.XXX-XX"required>
+                    <input type="text" id="cpf" placeholder="XXX.XXX.XXX-XX" required>
                 </div>
 
                 <div class="input-group w50">
                     <label for="telefone">Telefone</label>
-                    <input type="tel" id="telefone" placeholder="Digite o seu telefone" required>     
+                    <input type="tel" id="telefone" placeholder="Digite o seu telefone" required>
                 </div>
                 <div class="input-group w50">
                     <label for="telefone">Data de Nascimento</label>
-                    <input type="date" id="data-nasc"  required>
+                    <input type="date" id="data-nasc" required>
                 </div>
 
                 <div class="gender-inputs">
@@ -48,22 +48,22 @@
 
                     <div class="gender-group">
                         <div class="input">
-                            <input type="radio">
+                            <input type="radio" name="genero" value="1">
                             <span>Feminino<span>
                         </div>
 
                         <div class="gender-input">
-                            <input type="radio">
+                            <input type="radio" name="genero" value="2">
                             <span>Masculino</span>
                         </div>
 
                         <div class="gender-input">
-                            <input type="radio">
+                            <input type="radio" name="genero" value="0">
                             <span>Outros</span>
                         </div>
 
                         <div class="gender-input">
-                            <input type="radio">
+                            <input type="radio" name="genero" value="3">
                             <span>Prefiro não dizer</span>
                         </div>
                     </div>
@@ -79,10 +79,10 @@
                     </div>
 
                     <div class="input-group">
-                        <button>Cadastrar</button>
+                        <button onclick="cadastro()">Cadastrar</button>
                     </div>
                     <div class="input-group">
-                        <p>Já Possui Conta? <a href="#">Logar</a></p>
+                        <p>Já Possui Conta? <a href="login.html">Logar</a></p>
                     </div>
             </form>
 
@@ -97,5 +97,6 @@
         </div>
     </div>
 </body>
+<script src="../js/cadastro.js"></script>
 
 </html>
