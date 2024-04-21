@@ -17,7 +17,7 @@ async function cadastro() {
         type: 1
     };
 
-    await fetch('https://f394-177-94-22-233.ngrok-free.app//api/users', {
+    await fetch('https://f394-177-94-22-233.ngrok-free.app/api/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
