@@ -3,11 +3,11 @@ class Modal extends HTMLElement {
         this.innerHTML = `
         <div onclick="openModal()" class="btn">+</div>
 
-    <div id="modal-container" class="modal-container">
+        <div id="modal-container" class="modal-container">
         <div class="modal">
             <button class="fechar" id="fechar">X</button>
             <h1>Inserir Avaliação</h1>
-            <form action="">
+            <form action="">           
                 <div class="form-inputs">
 
                     <div class="form-group">
@@ -30,6 +30,13 @@ class Modal extends HTMLElement {
                     <label for="">Descrição</label>
                     <textarea name="" id="" cols="70" rows="5"></textarea>
                 </div>
+                <ul class="avaliacao">
+                    <li class="star-icon ativo" data-avaliacao="1"></li>
+                    <li class="star-icon" data-avaliacao="2"></li>
+                    <li class="star-icon" data-avaliacao="3"></li>
+                    <li class="star-icon" data-avaliacao="4"></li>
+                    <li class="star-icon" data-avaliacao="5"></li>
+                    </ul>
             </form>
         </div>`;
     }

@@ -26,7 +26,7 @@ class Header extends HTMLElement {
         
                         <a href="../html/pag-perfil.html" class="sub-menu-link">
                             <i class='bx bx-user'></i>
-                            <p>Edite Perfil</p>
+                            <p>Perfil</p>
                             <span>></span>
                         </a>
                         <a href="#" class="sub-menu-link">
