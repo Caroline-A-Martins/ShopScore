@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/search.css">
     <link rel="stylesheet" href="../css/janela-avaliacao.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -36,151 +37,7 @@
     <section id="card">
 
         <!-- card container -->
-        <div class="card-container">
-
-            <!-- card 2 -->
-            <div class="card">
-
-                <!-- img -->
-                <div class="card-img">
-                    <img src="../img/produtos/Air Fryer.png" alt="">
-                </div>
-
-                <!-- text -->
-                <div class="card-text">
-                    <h3 class="card-title">Produto X</h3>
-                    <span>15 Março 2024</span>
-                    <div class="card-user">
-
-                        <div class="card-ft">
-                            <img src="../img/perfil.png" alt="">
-                        </div>
-                        <div class="card-dados">
-                            <h1>Nome usuario</h1>
-                            <div class="stars">
-                                <span>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt porro reiciendis quasi vero,
-                        ipsam debitis.</p>
-                    <a class="ver-mais" href="#">Ver mais</a>
-                </div>
-            </div>
-            <!-- card 2 -->
-            <div class="card">
-
-                <!-- img -->
-                <div class="card-img">
-                    <img src="../img/produtos/sapato melissa.png" alt="">
-                </div>
-
-                <!-- text -->
-                <div class="card-text">
-                    <span class="card-title">Produto X</span>
-                    <span>15 Março 2024</span>
-                    <div class="card-user">
-
-                        <div class="card-ft">
-                            <img src="../img/perfil.png" alt="">
-                        </div>
-                        <div class="card-dados">
-                            <h1>Nome usuario</h1>
-                            <div class="stars">
-                                <span>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt porro reiciendis quasi vero,
-                        ipsam debitis.</p>
-                    <a class="ver-mais" href="#">Ver mais</a>
-                </div>
-            </div>
-
-            <!-- card 3 -->
-            <div class="card">
-
-                <!-- img -->
-                <div class="card-img">
-                    <img src="../img/produtos/Stanley.png" alt="">
-                </div>
-
-                <!-- text -->
-                <div class="card-text">
-                    <span class="card-title">Produto X</span>
-                    <span>15 Março 2024</span>
-                    <div class="card-user">
-
-                        <div class="card-ft">
-                            <img src="../img/perfil.png" alt="">
-                        </div>
-                        <div class="card-dados">
-                            <h1>Nome usuario</h1>
-                            <div class="stars">
-                                <span>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt porro reiciendis quasi vero,
-                        ipsam debitis.</p>
-                    <a class="ver-mais" href="#">Ver mais</a>
-                </div>
-            </div>
-
-
-            <!-- card 4 -->
-            <div class="card">
-
-                <!-- img -->
-                <div class="card-img">
-                    <img src="../img/produtos/comoda.png" alt="">
-                </div>
-
-                <!-- text -->
-                <div class="card-text">
-                    <span class="card-title">Produto X</span>
-                    <span>15 Março 2024</span>
-                    <div class="card-user">
-
-                        <div class="card-ft">
-                            <img src="../img/perfil.png" alt="">
-                        </div>
-                        <div class="card-dados">
-                            <h1>Nome usuario</h1>
-                            <div class="stars">
-                                <span>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt porro reiciendis quasi vero,
-                        ipsam debitis.</p>
-                    <a class="ver-mais" href="#">Ver mais</a>
-                </div>
-            </div>
+        <div class="card-container" id="card-container">
 
         </div>
     </section>
@@ -192,6 +49,11 @@
     <script src="../js/main.js"></script>
     <script src="../js/header.js"></script>
     <script src="../js/user-janela.js"></script>
+    <script src="../js/avaliacao.js"></script>
+    <script>
+        getCookie("token");
+        avaliacoes()
+    </script>
 </body>
 
 </html>

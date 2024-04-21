@@ -43,6 +43,8 @@ function getCookie(name) {
         window.location.href = '../html/login.html';
         return;
     } 
+
+    return
 }
 
 function logout() {
