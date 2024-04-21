@@ -81,7 +81,7 @@ body {
 /*Final Barra de Pesq*/
 
 /*Inicio Feed*/
-#blog {
+#card {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,7 +90,7 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0, .05);
 }
 
-.blog-container {
+.card-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,7 +98,7 @@ body {
     flex-wrap: wrap;
 }
 
-.blog-card {
+.card {
     width: 300px;
     background-color: #fff;
     border: 1px solid #ececec;
@@ -107,19 +107,19 @@ body {
     box-shadow: var(--box-shadow);
 }
 
-.blog-img {
+.card-img {
     width: 100%;
     height: auto;
     padding: 10px;
 }
 
-.blog-img img {
+.card-img img {
     width: 100%;
     height: 100%;
     border-radius: 10px;
 }
 
-.blog-text {
+.card-text {
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -127,39 +127,39 @@ body {
     font-size: .8rem;
 }
 
-.blog-title {
+.card-title {
     width: 100%;
     font-weight: 700;
     font-size: 1.35rem;
 }
 
 
-.blog-user {
+.card-user {
     display: flex;
     padding: 3.5px 0px;
 }
 
-.blog-user h1 {
+.card-user h1 {
     font-size: 15px;
     font-weight: 600;
 }
 
-.blog-ft {
+.card-ft {
     width: 40px;
     margin-right: 10px;
 }
 
-.blog-ft img {
+.card-ft img {
     border-radius: 50%;
 }
 
-.blog-text p {
+.card-text p {
     color: #9b9b9b;
     font-size: .9rem;
     margin-bottom: 5px;
 }
 
-.blog-text .ver-mais {
+.card-text .ver-mais {
     color: var(--bg-color);
     font-size: .9rem;
     background: var(--main-color);
@@ -189,12 +189,12 @@ body {
         font-size: 3rem;
     }
 
-    .blog-container {
+    .card-container {
         flex-direction: column;
         align-items: center;
     }
 
-    .blog-card {
+    .card {
         width: calc(100% - 40px);
         max-width: 400px;
         margin: 20px 0;
@@ -211,15 +211,15 @@ body {
         font-size: 2.5rem;
     }
 
-    .blog-text {
+    .card-text {
         font-size: 0.8rem;
     }
 
-    .blog-card {
+    .card {
         padding: 20px;
     }
 
-    .blog-ft img {
+    .card-ft img {
         width: 40px;
         height: 40px;
     }

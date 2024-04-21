@@ -17,7 +17,6 @@ class Header extends HTMLElement {
                 </ul>
                 <!--Icons-->
                 <div class="header-icon">
-                    <i class="bx bx-search" id="search-icon"></i>
                     <a href="pag-perfil.html"><i class='bx bx-user'></i></a>
                 </div>
                 <div class="search-box">

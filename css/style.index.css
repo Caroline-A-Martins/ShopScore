@@ -40,65 +40,49 @@ body {
     min-width: 100vh;
     background: #C8DBF5;
     text-align: center;
-    gap: 1.5rem;
-    padding: 180px 100px 100px;
+    padding: 180px 50px 130px;
 }
 
 
-.home-text h1 {
-    font-size: 3.4rem;
+.home .home-text h1 {
+    font-size: 7rem;
     color: var(--main-color);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.home-text p {
-    font-size: 0.938rem;
+.home .home-text p {
+    font-size: 1.5rem;
     color: var(--second-color);
-    margin: .5rem 0 1.4rem;
+    margin: .3rem 0 1.4rem;
+    font-style: italic
 }
 
-.btn {
-    padding: 10px 40px;
-    border-radius: .3rem;
-    background: var(--main-color);
-    color: var(--bg-color);
-    font-weight: 500;
-}
 
-.btn:hover {
-    background: #8a6f4d;
-}
 
 /*Final Home*/
 
 /* Inicio Sobre */
 
 .about {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
-    gap: 2rem;
+    text-align: center;
     padding: 100px 200px;
     align-items: center;
-}
-
-
-.about-img img {
-    border-radius: .5rem;
-    width: 95%;
-    margin-right: 50px;
 }
 
 .about-text h2 {
     font-size: 2.5rem;
     text-transform: uppercase;
-    color: var(--text-color);
+    color: var(--main-color);
 }
 
 .about-text p {
-    font-size: 1.3rem;
+    color: var(--text-color);
+    font-size: 1.5rem;
     margin: .5rem 0 1.1rem;
+    padding: 0px 30px;
 }
+
 /* Final Sobre */
 
 /* Inicio Ranking */
@@ -282,7 +266,7 @@ body {
 
 .contact i {
     font-size: 20px;
-    margin-bottom: 1rem;   
+    margin-bottom: 1rem;
 }
 
 /* Final Footer */
@@ -297,13 +281,32 @@ body {
         padding: 50px 60px;
     }
 
-    .home-text h1 {
-        font-size: 2.4rem;
+    .home {
+        padding: 150px 0 50px;
     }
 
+    .home .home-text h1 {
+        font-size: 5rem;
+    }
+
+    .about {
+        padding: 50px 100px;
+    }
+
+    .about .about-text p {
+        font-size: 20px;
+    }
+
+    .ranking-container img {
+        width: 100%;
+        object-position: center;
+        padding: 10px;
+        background: #f1f1f1;
+        border-radius: .5rem;
+    }
 }
 
-@media (max-width:991px) {
+@media (min-width:991px) {
     header {
         padding: 16px 4%;
     }
@@ -314,6 +317,10 @@ body {
 
     .home-text h1 {
         font-size: 2.4rem;
+    }
+
+    .home-text p {
+        font-size: 1rem;
     }
 }
 
