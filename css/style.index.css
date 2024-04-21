@@ -38,9 +38,9 @@ body {
 .home {
     width: 100%;
     min-width: 100vh;
-    background: #C8DBF5;
+    background: var(--light-blue-color);
     text-align: center;
-    padding: 180px 50px 130px;
+    padding: 180px 0px 90px;
 }
 
 
@@ -57,26 +57,27 @@ body {
     margin: .3rem 0 1.4rem;
     font-style: italic
 }
+
 /*Final Home*/
 
 /* Inicio Sobre */
 .about {
     text-align: center;
-    padding: 150px 300px;
+    padding: 100px 300px;
     align-items: center;
 }
 
 .about-text h2 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
     color: var(--main-color);
 }
 
 .about-text p {
     color: var(--text-color);
-    font-size: 1.9rem;
+    font-size: 18px;
     margin: .5rem 0 1.1rem;
-    padding: 0px 30px;
+    padding: 0px 80px;
 }
 
 /* Final Sobre */
@@ -274,11 +275,7 @@ body {
     }
 
     section {
-        padding: 50px 60px;
-    }
-
-    .home {
-        padding: 150px 0 50px;
+        padding: 50px 80px;
     }
 
     .home .home-text h1 {
@@ -286,7 +283,7 @@ body {
     }
 
     .about {
-        padding: 50px 100px;
+        padding: 100px 50px;
     }
 
     .about .about-text p {
@@ -298,11 +295,10 @@ body {
         object-position: center;
         padding: 10px;
         background: #f1f1f1;
-        border-radius: .5rem;
     }
 }
 
-@media (min-width:991px) {
+@media (max-width:991px) {
     header {
         padding: 16px 4%;
     }
@@ -318,83 +314,246 @@ body {
     .home-text p {
         font-size: 1rem;
     }
+    .ranking-container img{
+        width: 100%;
+        height: 250px;
+    }
+    .ranking-container .box .content a {
+        font-size:12px;
+        font-weight: 500;
+    }
+
+    .ranking-container .box .content span i {
+        font-size: 12px;
+        text-align: center;
+    }
 }
 
 @media (max-width:768px) {
     header {
-        padding: 12px 4%;
+        padding: 12px 60px;
     }
 
-    #menu-icon {
-        display: initial;
+    section {
+        padding: 50px 60px;
     }
 
-    .navbar {
-        position: absolute;
-        top: -570px;
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        background: var(--second-color);
-        row-gap: 1.4rem;
-        padding: 20px;
-        transition: .3s;
+    .home {
+        padding: 150px 0 50px;
         text-align: center;
+        justify-content: center;
+        align-items: center;
     }
 
-    .navbar a {
-        color: var(--text-color);
-    }
-
-    .navbar a:hover {
-        color: var(--bg-color);
-    }
-
-    .navbar.active {
-        top: 100%;
+    .home .home-text h1 {
+        font-size: 4rem;
     }
 
     .about {
-        align-items: center;
+        padding: 50px 0px;
+    }
+
+    .about .about-text h2 {
+        font-size: 2.2rem;
+    }
+    .about .about-text p {
+        font-size: 15px;
+    }
+
+    .ranking-container {
+        grid-template-columns: repeat(2, minmax(280px, auto));
+    }
+
+    .ranking-container .box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .ranking-container img{
+        width: 100%;
+        height: 250px;
+    }
+    .ranking-container .box .content a {
+        font-size:12px;
+        font-weight: 500;
+    }
+
+    .ranking-container .box .content span i {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .customers-container {
+        grid-template-columns: repeat(3, minmax(100px, auto));
+    }
+    .customers-container .box img {
+        width: 60px;
+        height: 60px;
+    }
+    .customers-container .box p {
+        font-size: 12px;
+    }
+
+    .customers-container .box h2 {
+        font-size: 14px;
+    }
+
+    .customers-container .box .stars {
+        font-size: 12px;
+    }
+
+}
+@media (max-width: 576px) {
+    header {
+        padding: 12px 40px;
+    }
+
+    section {
+        padding: 50px 40px;
+    }
+
+    .home {
+        padding: 120px 0 40px;
+    }
+
+    .home .home-text h1 {
+        font-size: 3.5rem;
+    }
+
+    .about {
+        padding: 50px 0;
+    }
+
+    .about .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about .about-text p {
+        font-size: 14px;
+    }
+
+    .ranking-container {
+        grid-template-columns: repeat(2, minmax(150px, auto));
+        gap: 20px;
+    }
+
+    .ranking-container .box {
+        width: calc(100% - 10px);
+        margin-bottom: 20px;
+    }
+
+    .ranking-container img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
+
+    .ranking-container .box .content a {
+        font-size: 10px;
+    }
+
+    .ranking-container .box .content span i {
+        font-size: 10px;
+    }
+
+    .customers-container {
+        grid-template-columns: repeat(3, minmax(80px, auto));
+        gap: 20px;
+    }
+
+    .customers-container .box img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .customers-container .box p {
+        font-size: 10px;
+    }
+
+    .customers-container .box h2 {
+        font-size: 12px;
+    }
+
+    .customers-container .box .stars {
+        font-size: 10px;
     }
 }
 
-@media (max-width:360px) {
+
+@media (max-width: 360px) {
     header {
         padding: 11px 4%;
     }
 
-    .logo img {
-        width: 45px;
+    section {
+        padding: 50px 4%;
     }
 
-    .home-text {
-        padding-top: 15px;
+    .home {
+        padding: 120px  50px;
+    }
+    .home .home-text h1 {
+        font-size: 2rem;
     }
 
-    .home-text h1 {
-        font-size: 1.4rem;
+    .home .home-text p {
+        font-size: 0.8rem;
     }
 
-    .home-text p {
-        font-size: .8rem;
-        font-weight: 300;
+    .about {
+        padding: 50px 0;
     }
 
-    .about-img {
-        order: 2;
+    .about .about-text h2 {
+        font-size: 1.5rem;
     }
 
-    .about-text {
+    .about .about-text p {
+        font-size: 12px;
+    }
+
+    .ranking-container {
+        grid-template-columns: repeat(1, minmax(280px, auto));
+    }
+
+    .ranking-container .box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .ranking-container img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .ranking-container .box .content a {
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    .ranking-container .box .content span i {
+        font-size: 10px;
         text-align: center;
     }
 
-    .about-text h2 {
-        font-size: 1.2rem;
+    .customers-container {
+        grid-template-columns: repeat(1, minmax(100px, auto));
     }
 
-    .heading h2 {
-        font-size: 1.2rem;
+    .customers-container .box img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .customers-container .box p {
+        font-size: 10px;
+    }
+
+    .customers-container .box h2 {
+        font-size: 12px;
+    }
+
+    .customers-container .box .stars {
+        font-size: 10px;
     }
 }
