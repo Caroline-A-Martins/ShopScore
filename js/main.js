@@ -1,22 +1,14 @@
 // confg do arq index.html
 
-let search = document.querySelector('.search-box');
-
-document.querySelector('#search-icon').onclick = () => {
-    search.classList.toggle('active');
-    navbar.classList.remove('active');
-}
-
 let navbar = document.querySelector('.navbar');
+let menuIcon = document.getElementById('menu-icon');
 
-document.querySelector('#menu-icon').onclick = () => {
+menuIcon.onclick = () => {
     navbar.classList.toggle('active');
-    search.classList.remove('active');
 }
 
 window.onscroll = () => {
     navbar.classList.remove('active');
-    search.classList.remove('active');
 }
 
 let header = document.querySelector('header');
@@ -47,7 +39,3 @@ function getCookie(name) {
     return
 }
 
-function logout() {
-    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    window.location.href = '../html/login.html';
-}
