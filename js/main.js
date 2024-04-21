@@ -36,6 +36,6 @@ function getCookie(name) {
         return;
     } 
 
-    return
+    return token;
 }
 

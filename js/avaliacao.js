@@ -2,7 +2,7 @@ async function avaliacoes() {
     var search = document.getElementById('searchInput').value;
     var token = getCookie('token');
 
-    await axios.get(`http://localhost:3000/api/evaluations?search=${search}`, {
+    await axios.get(`https://f394-177-94-22-233.ngrok-free.app/api/evaluations?search=${search}`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
