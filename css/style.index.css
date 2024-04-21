@@ -57,28 +57,24 @@ body {
     margin: .3rem 0 1.4rem;
     font-style: italic
 }
-
-
-
 /*Final Home*/
 
 /* Inicio Sobre */
-
 .about {
     text-align: center;
-    padding: 100px 200px;
+    padding: 150px 300px;
     align-items: center;
 }
 
 .about-text h2 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     text-transform: uppercase;
     color: var(--main-color);
 }
 
 .about-text p {
     color: var(--text-color);
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     margin: .5rem 0 1.1rem;
     padding: 0px 30px;
 }

@@ -31,3 +31,5 @@ document.querySelector("#firstName").addEventListener("input", function () {
     const firstName = this.value;
     console.log(`Primeiro nome: ${firstName}`);
 });
+
+

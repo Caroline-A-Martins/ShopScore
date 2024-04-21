@@ -35,23 +35,26 @@
 .perfil-container {
     display: flex;
     align-items: center;
-    padding: 0 100px;
+    justify-content: center;
+    padding: 0 150px;
 }
 
 .perfil-img {
-    padding-right: 20px;
+    padding-right: 30px;
 }
 
 .perfil-img img {
     border-radius: 50%;
-    width: 300px;
-    margin: 0 25px;
+    width: 400px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
+
 
 .input-group {
     float: left;
     width: 50%;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 form .input-group label{
@@ -61,7 +64,7 @@ form .input-group label{
 }
 
 form .input-group input {
-    width: 80%;
+    width: 90%;
     height: 50px;
     background-color: var(--input-color);
     border-radius: 10px;
@@ -73,7 +76,29 @@ form .input-group input {
     font-weight: 400;
 }
 
-
 .input-group .item-esquerda {
     padding-right: 15px;
+}
+
+.input-btn{
+    text-align: center;
+    
+}
+.input-btn button {
+    width: 180px;
+    height: 60px;
+    background: var(--main-color);
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-top: 15px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: var(--box-shadow);
+    font-weight: 575;
+}
+
+.input-btn button:hover {
+    background: #1d2d49;
 }
