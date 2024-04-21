@@ -14,7 +14,7 @@ document.querySelector('#menu-icon').onclick = () => {
     search.classList.remove('active');
 }
 
-window.onscroll = () =>{
+window.onscroll = () => {
     navbar.classList.remove('active');
     search.classList.remove('active');
 }
@@ -32,4 +32,20 @@ document.querySelector("#firstName").addEventListener("input", function () {
     console.log(`Primeiro nome: ${firstName}`);
 });
 
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) {
+        var token = parts.pop().split(";").shift();
+    }
 
+    if (!token) {
+        window.location.href = '../html/login.html';
+        return;
+    } 
+}
+
+function logout() {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    window.location.href = '../html/login.html';
+}

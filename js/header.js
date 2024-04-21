@@ -3,7 +3,7 @@ class Header extends HTMLElement {
         this.innerHTML = `
             <!-- Inicio Navbar -->
             <header>
-                <a href="#" class="logo">
+                <a href="../html/index.html" class="logo">
                     <span>ShopScore</span>
                 </a>
                 <!-- Menu-Icon -->
@@ -14,6 +14,7 @@ class Header extends HTMLElement {
                     <li><a href="avaliacao.html">Avaliações</a></li>
                     <li><a href="#ranking">Ranking</a></li>
                     <li><a href="#customers">clientes</a></li>
+                    <li><a href='#' onclick='logout()'>Sair</a></li>
                 </ul>
                 <img src="../img/perfil.png" class="user-pic" onclick="toggleMenu()">
 
