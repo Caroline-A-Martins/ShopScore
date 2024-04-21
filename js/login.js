@@ -6,7 +6,7 @@ async function login() {
         password: password,
         type: 1
     };
-    await fetch('http://localhost:3000/api/login', {
+    await fetch('https://f394-177-94-22-233.ngrok-free.app//api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
