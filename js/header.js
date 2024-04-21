@@ -13,8 +13,6 @@ class Header extends HTMLElement {
                     <li><a href="index.html">Home</a></li>
                     <li><a href="avaliacao.html">Avaliações</a></li>
                     <li><a href="#ranking">Ranking</a></li>
-                    <li><a href="#customers">clientes</a></li>
-                    <li><a href='#' onclick='logout()'>Sair</a></li>
                 </ul>
                 <img src="../img/perfil.png" class="user-pic" onclick="toggleMenu()">
 
@@ -33,7 +31,7 @@ class Header extends HTMLElement {
                         </a>
                         <a href="#" class="sub-menu-link">
                             <i class='bx bxs-exit'></i>
-                            <p>Logout</p>
+                            <p onclick='logout()'>Logout</p>
                             <span>></span>
                         </a>
                     </div>
