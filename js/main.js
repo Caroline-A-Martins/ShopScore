@@ -24,18 +24,29 @@ document.querySelector("#firstName").addEventListener("input", function () {
     console.log(`Primeiro nome: ${firstName}`);
 });
 
-function getCookie(name) {
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    if (parts.length == 2) {
-        var token = parts.pop().split(";").shift();
-    }
+// function getCookie(name) {
+//     var value = "; " + document.cookie;
+//     var parts = value.split("; " + name + "=");
+//     if (parts.length == 2) {
+//         var token = parts.pop().split(";").shift();
+//     }
+
+//     if (!token && name === "token") {
+//         window.location.href = '../html/login.html';
+//         return;
+//     } 
+
+//     return token;
+// }
+
+function getToken() {
+    const token = localStorage.getItem("token");
+
+    console.log(token)
 
     if (!token) {
         window.location.href = '../html/login.html';
         return;
-    } 
-
-    return
+    }
 }
 

@@ -1,5 +1,7 @@
 class Header extends HTMLElement {
     connectedCallback() {
+        const user = JSON.parse(localStorage.getItem('user'));
+        console.log(user)
         this.innerHTML = `
             <!-- Inicio Navbar -->
             <header>
@@ -14,19 +16,19 @@ class Header extends HTMLElement {
                     <li><a href="avaliacao.html">Avaliações</a></li>
                     <li><a href="#ranking">Ranking</a></li>
                 </ul>
-                <img src="../img/perfil.png" class="user-pic" onclick="toggleMenu()">
+                <img src=${user.image} class="user-pic" onclick="toggleMenu()">
 
                 <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
                         <div class="user-info">
-                            <img src="../img/perfil.png">
-                            <h2>Nome de Usuario</h2>
+                            <img src=${user.image}>
+                            <h2>${user.name}</h2>
                         </div>
                         <hr>
         
                         <a href="../html/pag-perfil.html" class="sub-menu-link">
                             <i class='bx bx-user'></i>
-                            <p>Edite Perfil</p>
+                            <p>Perfil</p>
                             <span>></span>
                         </a>
                         <a href="#" class="sub-menu-link">

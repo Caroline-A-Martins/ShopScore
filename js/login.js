@@ -6,7 +6,7 @@ async function login() {
         password: password,
         type: 1
     };
-    await fetch('https://f394-177-94-22-233.ngrok-free.app/api/login', {
+    await fetch('https://shopscore-api.onrender.com/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -16,9 +16,11 @@ async function login() {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            console.log(data.data);
             if (data.success === true) {
-                document.cookie = "token=" + data.token + ";path=/";
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('id', data.data.id);
+                localStorage.setItem('user', JSON.stringify(data.data));
                 alert('Login realizado com sucesso!');
                 window.location.href = '../html/index.html';
                 return;
