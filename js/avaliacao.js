@@ -1,8 +1,8 @@
 async function avaliacoes() {
     var search = document.getElementById('searchInput').value;
-    var token = getCookie('token');
+    var token = localStorage.getItem('token');
 
-    await axios.get(`https://f394-177-94-22-233.ngrok-free.app/api/evaluations?search=${search}`, {
+    await axios.get(`https://shopscore-api.onrender.com/api/evaluations?search=${search}`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -12,13 +12,19 @@ async function avaliacoes() {
             const avaliacoes = response.data.data;
 
             const card_container = document.getElementById('card-container');
-            console.log(card_container)
 
-            avaliacoes.forEach(aval => {
-                let stars = '';
+            if (avaliacoes.length === 0) {
+                card_container.innerHTML = `
+                <div class="card">
+                    <h3 class="card-title">Nenhuma avaliação encontrada</h3>
+                </div>
+                `;
+            } else {
+                avaliacoes.forEach(aval => {
+                    let stars = '';
 
-                if (aval.rating === 5) {
-                    stars = `
+                    if (aval.rating === 5) {
+                        stars = `
                     <div class="stars">
                         <span>
                             <i class='bx bxs-star'></i>
@@ -28,8 +34,8 @@ async function avaliacoes() {
                             <i class='bx bxs-star'></i>
                         </span>
                     </div>`
-                } else if (aval.rating === 4) {
-                    stars = `
+                    } else if (aval.rating === 4) {
+                        stars = `
                     <div class="stars">
                         <span>
                             <i class='bx bxs-star'></i>
@@ -38,8 +44,8 @@ async function avaliacoes() {
                             <i class='bx bxs-star'></i>
                         </span>
                     </div>`
-                } else if (aval.rating === 3) {
-                    stars = `
+                    } else if (aval.rating === 3) {
+                        stars = `
                     <div class="stars">
                         <span>
                             <i class='bx bxs-star'></i>
@@ -47,24 +53,24 @@ async function avaliacoes() {
                             <i class='bx bxs-star'></i>
                         </span>
                     </div>`
-                } else if (aval.rating === 2) {
-                    stars = `
+                    } else if (aval.rating === 2) {
+                        stars = `
                     <div class="stars">
                         <span>
                             <i class='bx bxs-star'></i>
                             <i class='bx bxs-star'></i>
                         </span>
                     </div>`
-                } else {
-                    stars = `
+                    } else {
+                        stars = `
                     <div class="stars">
                         <span>
                             <i class='bx bxs-star'></i>
                         </span>
                     </div>`
-                }
+                    }
 
-                let html = `
+                    let html = `
             <div class="card">
                 <!-- img -->
                 <div class="card-img">
@@ -91,8 +97,9 @@ async function avaliacoes() {
             </div>
             `;
 
-                card_container.innerHTML += html;
-            })
+                    card_container.innerHTML += html;
+                })
+            }
 
         })
         .catch((error) => {
