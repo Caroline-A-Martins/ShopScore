@@ -14,7 +14,6 @@ class Header extends HTMLElement {
                 <ul class="navbar">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="avaliacao.html">Avaliações</a></li>
-                    <li><a href="#ranking">Ranking</a></li>
                 </ul>
                 <img src=${user.image} class="user-pic" onclick="toggleMenu()">
 

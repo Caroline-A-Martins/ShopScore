@@ -5,5 +5,7 @@ function toggleMenu() {
 
 function logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('id');
+    localStorage.removeItem('user');
     window.location.href = '../html/login.html';
 }
