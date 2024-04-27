@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../css/search.css">
     <link rel="stylesheet" href="../css/janela-avaliacao.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js" integrity="sha512-4F1cxYdMiAW98oomSLaygEwmCnIP38pb4Kx70yQYqRwLVCs3DbRumfBq82T08g/4LJ/smbFGFpmeFlQgoDccgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -30,6 +30,7 @@
             <i class="bx bx-search" id="search-icon"></i>
         </label>
         <input type="text" id="searchInput" placeholder="Pesquisar">
+        <button onclick="avaliacoes()">Pesquisar</button>
     </div>
     <!-- Final Painel -->
 
@@ -51,7 +52,7 @@
     <script src="../js/user-janela.js"></script>
     <script src="../js/avaliacao.js"></script>
     <script>
-        getToken();
+        getToken()
         avaliacoes()
     </script>
 </body>

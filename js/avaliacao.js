@@ -1,3 +1,4 @@
+moment.locale('pt-br');
 async function avaliacoes() {
     var search = document.getElementById('searchInput').value;
     var token = localStorage.getItem('token');
@@ -12,6 +13,8 @@ async function avaliacoes() {
             const avaliacoes = response.data.data;
 
             const card_container = document.getElementById('card-container');
+
+            card_container.innerHTML = '';
 
             if (avaliacoes.length === 0) {
                 card_container.innerHTML = `
@@ -80,11 +83,11 @@ async function avaliacoes() {
                 <!-- text -->
                 <div class="card-text">
                     <h3 class="card-title">${aval.StoreProduct.Product.name}</h3>
-                    <span>${aval.createdAt}</span>
+                    <span>${moment(aval.createdAt).format("LL")}</span>
                     <div class="card-user">
 
                         <div class="card-ft">
-                            <img src=${aval.User.image} alt="">
+                            <img src=${aval.User.image ? aval.User.image : '../img/perfil.png'} alt="${aval.User.name}">
                         </div>
                         <div class="card-dados">
                             <h1>${aval.User.name}</h1>
