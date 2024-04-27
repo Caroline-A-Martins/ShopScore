@@ -35,4 +35,3 @@ function getToken() {
     return token;
 }
 
-
