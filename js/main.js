@@ -35,8 +35,6 @@ function getToken() {
     return token;
 }
 
-<<<<<<< HEAD
-=======
 async function melhoresLojas() {
     var token = localStorage.getItem('token');
 
@@ -166,4 +164,3 @@ async function avaliacoesClientes() {
         })
 }
 
->>>>>>> f6956a6e21b059e978f6c0bc759c64c41796fcbc
