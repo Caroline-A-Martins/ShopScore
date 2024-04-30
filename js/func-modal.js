@@ -1,6 +1,6 @@
 class Modal extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
         <div onclick="openModal()" class="btn">+</div>
 
         <div id="modal-container" class="modal-container">
@@ -50,7 +50,12 @@ class Modal extends HTMLElement {
                     </ul>
             </form>
         </div>`;
-    }
+  }
 }
 
-customElements.define('custom-modal', Modal);
+customElements.define("custom-modal", Modal);
+// $(async function () {
+//     const token = getToken();
+//     await axios.get('')
+//   $("products-select").selectize(options);
+// });

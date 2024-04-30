@@ -94,7 +94,7 @@ body {
 .card-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     margin: 20px 0px;
     flex-wrap: wrap;
 }
