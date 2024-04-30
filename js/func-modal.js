@@ -25,10 +25,21 @@ class Modal extends HTMLElement {
                     </div>
                 </div>
                 <div class="input-group">
-                    <label for="nome"> Nome produto/loja</label>
-                    <input type="text" id="nome" placeholder="Digite o nome do produto/loja " required>
+                    <select id="lojas" onchange="checkSelectedOption()">
+                        <option value="">Selecione uma loja</option>
+                        <option value="loja1">Loja 1</option>
+                        <option value="loja2">Loja 2</option>
+                        <option value="loja3">Loja 3</option>
+                        <option value="naoencontrei">Não encontrei</option>
+                    </select>
+
+                    <div id="inputLoja" style="display: none;">
+                        <label for="outraLoja">Digite o nome da loja:</label>
+                        <input type="text" id="outraLoja" name="outraLoja">
+                    </div>
+
                     <label for="">Descrição</label>
-                    <textarea name="" id="" cols="70" rows="5"></textarea>
+                    <textarea name="" id="textarea" cols="50" rows="5"></textarea>
                 </div>
                 <ul class="avaliacao">
                     <li class="star-icon ativo" data-avaliacao="1"></li>

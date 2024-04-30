@@ -23,3 +23,15 @@ document.addEventListener('click', function (e) {
         console.log(e.target.getAttribute('data-avaliacao'));
     }
 });
+
+//select 
+function checkSelectedOption() {
+    var select = document.getElementById("lojas");
+    var inputDiv = document.getElementById("inputLoja");
+
+    if (select.value === "naoencontrei") {
+        inputDiv.style.display = "block";
+    } else {
+        inputDiv.style.display = "none";
+    }
+}
