@@ -1,15 +1,13 @@
+function showHide(type) {
+    let password = type == 'password' ? document.getElementById('password') : document.getElementById('confirmPassword');
+    let icon = type == 'password' ? document.getElementById('icon') : document.getElementById('confirmIcon');
 
-// Mostrar & Ocultar Senha 
-
-const password = document.getElementById('password');
-const icon = document.getElementById('icon');
-
-function showHide() {
     if (password.type === 'password') {
         password.setAttribute('type', 'text');
-        icon.classList.add('hide')
+        icon.classList.add('hide');
     } else {
         password.setAttribute('type', 'password');
-        icon.classList.remove('hide')
+        icon.classList.remove('hide');
     }
 }
+

@@ -116,8 +116,23 @@ form .input-group input {
     height: 30px;
     cursor: pointer;
 }
+#confirmIcon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: url(../img/show.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
 
 #icon.hide {
+    background: url(../img/hide.png);
+    background-size: cover;
+}
+#confirmIcon.hide {
     background: url(../img/hide.png);
     background-size: cover;
 }
