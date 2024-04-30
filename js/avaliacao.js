@@ -82,7 +82,7 @@ async function avaliacoes() {
 
                 <!-- text -->
                 <div class="card-text">
-                    <h3 class="card-title">${aval.StoreProduct.Product.name}</h3>
+                    <h3 class="card-title">${truncateText(aval.StoreProduct.Product.name, 50)}</h3>
                     <span>${moment(aval.createdAt).format("LL")}</span>
                     <div class="card-user">
 
@@ -94,7 +94,7 @@ async function avaliacoes() {
                             ${stars}
                         </div>
                     </div>
-                    <p>${aval.description}</p>
+                    <p>${truncateText(aval.description, 50)}</p>
                     <a class="ver-mais" href="#">Ver mais</a>
                 </div>
             </div>
@@ -108,4 +108,12 @@ async function avaliacoes() {
         .catch((error) => {
             console.error('Error:', error);
         });
+}
+
+function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+        return text.substring(0, maxLength - 3) + '...';
+    } else {
+        return text;
+    }
 }

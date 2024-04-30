@@ -5,7 +5,14 @@ async function cadastro() {
     var birthDate = document.getElementById('data-nasc').value;
     var telephone = document.getElementById('telefone').value;
     var gender = document.querySelector('input[name="genero"]:checked').value;
-    var password = document.getElementById('senha').value;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+
+    if (password != confirmPassword) {
+        alert('Senhas não conferem!');
+        return;
+    }
+
     var data = {
         name,
         email,
