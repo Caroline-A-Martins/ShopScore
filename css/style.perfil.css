@@ -127,66 +127,100 @@ form .gender-inputs label {
   gap: 0.5rem;
 }
 
-@media only screen and (min-width: 1024px) {
+@media (max-width: 768px) {
   .container {
-    padding: 30px 20px;
+    flex-direction: column;
+    align-items: center; 
   }
 
-  .form h1 {
-    font-size: 3rem;
-  }
-
-  .perfil-img{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .perfil-img img {
-    width: 250px;
-  }
-
-  .perfil-form form .input-group input {
-    width: calc(100% - 10px);
-  }
-
-  .perfil-form .input-btn button {
-    width: 200px;
-    height: 70px;
-    font-size: 24px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .perfil-img img {
-    width: 250px;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .container {
-    padding: 30px 20px;
-  }
-
-  .form h1 {
-    font-size: 3rem;
+  .perfil-container {
+    order: -1; 
+    margin-bottom: 20px;
   }
 
   .perfil-img {
-    padding: 0;
+    padding: 15px;
   }
 
   .perfil-img img {
-    width: 250px;
+    width: 150px;
   }
 
-  .perfil-form form .input-group input {
-    width: calc(100% - 10px);
+  .fm-group {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil-form .input-group {
+    margin-bottom: 10px;
   }
 
   .perfil-form .input-btn button {
-    width: 200px;
-    height: 70px;
-    font-size: 24px;
+    width: 100px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  .form h1 {
+    font-size: 2.8rem; 
+  }
+
+  .perfil-img {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+  }
+
+  .perfil-img img {
+    width: 200px; 
+  }
+
+  .perfil-form .input-group {
+    margin-bottom: 15px;
+    padding: 0 15px 0 0;
+  }
+
+  .perfil-form form .input-group input {
+    width: calc(100% - 20px); 
+  }
+
+  .perfil-form .input-btn button {
+    width: 160px; 
+    height: 50px;
+    font-size: 18px; 
+  }
+}
+@media (min-width: 1025px) {
+  .container {
+    padding: 50px; 
+  }
+
+  .form h1 {
+    font-size: 3.2rem; 
+  }
+
+  .perfil-img img {
+    width: 300px; 
+  }
+
+  .perfil-form .input-group {
+    margin-bottom: 20px; 
+    padding: 0 20px 0 0; 
+  }
+
+  .perfil-form form .input-group input {
+    height: 50px; 
+    font-size: 18px; 
+  }
+
+  .perfil-form .input-btn button {
+    width: 200px; 
+    height: 60px;
+    font-size: 22px; 
   }
 }
