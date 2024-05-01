@@ -5,8 +5,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-padding-top: 4rem;
-  scroll-behavior: smooth;
   list-style: none;
   text-decoration: none;
 }
@@ -24,9 +22,17 @@
   --box-shadow: 2px 2px 10px 4px #0e373626;
 }
 
-.form {
-  padding: 150px;
+body {
+  background-color: #f9f9f9;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 
 .form h1 {
   font-size: 2.5rem;
@@ -36,12 +42,10 @@
 
 .perfil-container {
   display: flex;
-  align-items: center;
-  gap: 5vw;
 }
 
 .perfil-img {
-  padding: 0 30px 30px 0;
+  padding: 25px 30px;
 }
 
 .perfil-img img {
@@ -49,6 +53,7 @@
   width: 250px;
   cursor: pointer;
   transition: transform 0.3s ease;
+  box-shadow: var(--box-shadow);
 }
 
 .fm-group {
@@ -68,19 +73,16 @@
 }
 
 .perfil-form form .input-group input {
-  width: 100%;
+  width: calc(100% - 20px);
   height: 45px;
-  background-color: #f5f5f5;
+  background-color: #f9f9f9;
   border-radius: 10px;
   outline: none;
   padding: 10px;
   font-size: 15px;
   transition: all 0.4s ease;
   font-weight: 300;
-}
-
-.perfil-form .input-group .item-esquerda {
-  margin: 0 15px;
+  box-shadow: var(--box-shadow);
 }
 
 .perfil-form .input-btn {
@@ -109,15 +111,14 @@
 .gender-group {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.62rem;
-  margin-bottom: 0.62rem;
+  margin-top: 0.50rem;
+  margin-bottom: 0.50rem;
   padding: 0 0.5rem;
   gap: 1rem;
 }
 
 form .gender-inputs label {
   display: block;
-  margin-bottom: 5px;
 }
 
 .gender-input {
@@ -126,46 +127,66 @@ form .gender-inputs label {
   gap: 0.5rem;
 }
 
-/* Estilos para telas com largura mínima de 1024px */
-@media screen and (max-width: 1024px) {
-  .form {
-    padding: 200px;
-  }
- 
-  .perfil-img img {
-    width: 300px;
-  }
-  .perfil-form .input-group {
-   
-    padding: 0 15px;
+@media only screen and (min-width: 1024px) {
+  .container {
+    padding: 30px 20px;
   }
 
-  .fm-group {
-    grid-template-columns: 1fr;
+  .form h1 {
+    font-size: 3rem;
+  }
+
+  .perfil-img{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .perfil-img img {
+    width: 250px;
+  }
+
+  .perfil-form form .input-group input {
+    width: calc(100% - 10px);
+  }
+
+  .perfil-form .input-btn button {
+    width: 200px;
+    height: 70px;
+    font-size: 24px;
   }
 }
 
-/* Estilos para telas menores que 768px */
-@media screen and (max-width: 768px) {
-  .form {
-    padding: 50px;
+@media only screen and (min-width: 768px) {
+  .perfil-img img {
+    width: 250px;
   }
-  .perfil-container {
-    flex-direction: column;
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    padding: 30px 20px;
   }
+
+  .form h1 {
+    font-size: 3rem;
+  }
+
   .perfil-img {
     padding: 0;
-    margin-bottom: 30px;
-    text-align: center;
   }
+
   .perfil-img img {
+    width: 250px;
+  }
+
+  .perfil-form form .input-group input {
+    width: calc(100% - 10px);
+  }
+
+  .perfil-form .input-btn button {
     width: 200px;
-  }
-  .perfil-form {
-    width: 100%;
-  }
-  .input-group {
-    width: 100%;
-    margin: 0;
+    height: 70px;
+    font-size: 24px;
   }
 }
