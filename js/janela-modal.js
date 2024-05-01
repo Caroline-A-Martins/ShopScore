@@ -15,7 +15,6 @@ async function getProdutos() {
         const lojasSelect = $('#lojas-select').val();
         const token = localStorage.getItem('token');
         const produtosSelectize = $('#produtos-select')[0].selectize;
-        console.log(produtosSelectize);
         produtosSelectize.clearOptions();
 
         const response = await axios.get(`https://shopscore-api.onrender.com/api/products/stores/${lojasSelect}`, {
@@ -41,7 +40,7 @@ function showCnpj() {
 
 function showProduct() {
     const produto = document.getElementById('produto');
-    const descricao = document.getElementById('descricao');
+    const descricao = document.getElementById('descricao_prod');
     const imagem = document.getElementById('imagem');
     produto.style.display = 'block';
     descricao.style.display = 'block';

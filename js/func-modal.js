@@ -7,7 +7,7 @@ class Modal extends HTMLElement {
         <div class="modal">
             <button class="fechar" id="fechar">X</button>
             <h1>Inserir Avaliação</h1>
-            <form enctype="multipart/form-data">           
+            <form enctype="multipart/form-data" action="#">           
                 <div class="input-group">
                     <label for="loja">Loja</label>
                     <select id="lojas-select" onchange="getProdutos()" name="idstore">
@@ -25,7 +25,7 @@ class Modal extends HTMLElement {
                     <p>Não encontrou o produto? <i class='bx bxs-plus-square' style='color:#223555;font-size:25px;' onclick="showProduct()"></i></p>
 
                     <input type="text" id="produto" name="produto" placeholder="Insira o nome do produto..." style="display:none">
-                    <input type="text" id="descricao_prod" name="descricao" placeholder="Insira a descrição..." style="display:none">
+                    <input type="text" id="descricao_prod" name="descricao_prod" placeholder="Insira a descrição..." style="display:none">
                     <input type="file" id="imagem" name="imagem" style="display:none">
 
                     <label for="titulo">Título</label>
@@ -88,8 +88,10 @@ async function avaliar() {
     var description = document.getElementById('descricao').value;
     var rating = document.getElementById('rating').value;
     var token = localStorage.getItem('token');
+    var iduser = localStorage.getItem('id');
 
     const data = {
+        iduser,
         idstore,
         idstoreproduct,
         title,
@@ -101,13 +103,11 @@ async function avaliar() {
     await axios.post('https://shopscore-api.onrender.com/api/evaluations', data, {
         headers: {
             'Authorization': `Bearer ${token}`
-        },
-        timeout: 5000 
+        }
     })
         .then(response => {
-            console.log(response.data);
             alert('Avaliação cadastrada com sucesso!');
-            //window.location.href = '../html/avaliacoes.html';
+            window.location.href = '../html/avaliacoes.html';
             return;
         })
         .catch((error) => {

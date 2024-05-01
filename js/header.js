@@ -1,7 +1,6 @@
 class Header extends HTMLElement {
     connectedCallback() {
         const user = JSON.parse(localStorage.getItem('user'));
-        console.log(user)
         this.innerHTML = `
             <!-- Inicio Navbar -->
             <header>
