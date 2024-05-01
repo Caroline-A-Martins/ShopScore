@@ -99,7 +99,7 @@
         document.getElementById('telefone').value = user.telephone;
         document.getElementById('data-nasc').value = new Date(user.birthDate).toISOString().split('T')[0];
         document.getElementById('cpf').value = user.cpf;
-        document.getElementById('imagem').src = user.image;
+        document.getElementById('imagem').src = user.image ? user.image : '../img/perfil.png';
         document.querySelector(`input[name="genero"][value="${user.gender}"]`).checked = true;
     </script>
 </body>

@@ -1,61 +1,121 @@
 class Modal extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `
+    async connectedCallback() {
+        this.innerHTML = `
         <div onclick="openModal()" class="btn">+</div>
 
         <div id="modal-container" class="modal-container">
         <div class="modal">
             <button class="fechar" id="fechar">X</button>
             <h1>Inserir Avaliação</h1>
-            <form action="">           
-                <div class="form-inputs">
-
-                    <div class="form-group">
-                        <div class="input">
-                            <input type="radio">
-                            <span>Loja<span>
-                        </div>
-
-                        <div class="form-input">
-                            <div class="input">
-                                <input type="radio">
-                                <span>Produto<span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <form enctype="multipart/form-data">           
                 <div class="input-group">
-                    <select id="lojas" onchange="checkSelectedOption()">
-                        <option value="">Selecione uma loja</option>
-                        <option value="loja1">Loja 1</option>
-                        <option value="loja2">Loja 2</option>
-                        <option value="loja3">Loja 3</option>
-                        <option value="naoencontrei">Não encontrei</option>
+                    <label for="loja">Loja</label>
+                    <select id="lojas-select" onchange="getProdutos()" name="idstore">
+
                     </select>
 
-                    <div id="inputLoja" style="display: none;">
-                        <label for="outraLoja">Digite o nome da loja:</label>
-                        <input type="text" id="outraLoja" name="outraLoja">
-                    </div>
+                    <p>Não encontrou a loja? <i class='bx bxs-plus-square'  onclick="showCnpj()" style='color:#223555;font-size:25px;' ></i></p>
+                    <input type="text" id="cnpj" name="cnpj" placeholder="Insira o CNPJ..." style="display:none">
 
-                    <label for="">Descrição</label>
-                    <textarea name="" id="textarea" cols="50" rows="5"></textarea>
+                    <label for="produto">Produto</label>
+                    <select id="produtos-select" name="idstoreproduct">
+
+                    </select>
+
+                    <p>Não encontrou o produto? <i class='bx bxs-plus-square' style='color:#223555;font-size:25px;' onclick="showProduct()"></i></p>
+
+                    <input type="text" id="produto" name="produto" placeholder="Insira o nome do produto..." style="display:none">
+                    <input type="text" id="descricao_prod" name="descricao" placeholder="Insira a descrição..." style="display:none">
+                    <input type="file" id="imagem" name="imagem" style="display:none">
+
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo">
+
+                    <label for="descricao">Descrição</label>
+                    <textarea name="descricao" id="descricao" cols="50" rows="5"></textarea>
                 </div>
-                <ul class="avaliacao">
-                    <li class="star-icon ativo" data-avaliacao="1"></li>
-                    <li class="star-icon" data-avaliacao="2"></li>
-                    <li class="star-icon" data-avaliacao="3"></li>
-                    <li class="star-icon" data-avaliacao="4"></li>
-                    <li class="star-icon" data-avaliacao="5"></li>
+                <div class="input-group">
+                    <ul class="avaliacao">
+                        <li class="star-icon ativo" data-avaliacao="1" onclick="setNote(1)"></li>
+                        <li class="star-icon" data-avaliacao="2" onclick="setNote(2)"></li>
+                        <li class="star-icon" data-avaliacao="3" onclick="setNote(3)"></li>
+                        <li class="star-icon" data-avaliacao="4" onclick="setNote(4)"></li>
+                        <li class="star-icon" data-avaliacao="5" onclick="setNote(5)"></li>
                     </ul>
+                </div>
+                <input type="hidden" id="rating" name="rating" value="1">
+                <div class="input-group">
+                    <button class="btn" onclick="avaliar()">Enviar</button>
+                </div>
             </form>
         </div>`;
-  }
+
+        try {
+            const token = localStorage.getItem('token');
+            const response = await axios.get('https://shopscore-api.onrender.com/api/stores', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            const lojas = response.data.data;
+            $('#lojas-select').selectize({
+                options: lojas.map(loja => {
+                    return { value: loja.id, text: loja.fantasyName };
+                }),
+                create: false,
+                sortField: 'text',
+                placeholder: 'Selecione uma loja'
+            });
+        } catch (error) {
+            console.error('Erro ao buscar lojas:', error);
+        }
+    }
+}
+
+$(document).ready(function () {
+    $('#produtos-select').selectize({
+        create: false,
+        sortField: 'text',
+        placeholder: 'Selecione um produto'
+    });
+});
+
+async function avaliar() {
+    var idstore = document.getElementById('lojas-select').value;
+    var idstoreproduct = document.getElementById('produtos-select').value;
+    var title = document.getElementById('titulo').value;
+    var description = document.getElementById('descricao').value;
+    var rating = document.getElementById('rating').value;
+    var token = localStorage.getItem('token');
+
+    const data = {
+        idstore,
+        idstoreproduct,
+        title,
+        description,
+        rating
+    }
+
+    console.log(data);
+    await axios.post('https://shopscore-api.onrender.com/api/evaluations', data, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        },
+        timeout: 5000 
+    })
+        .then(response => {
+            console.log(response.data);
+            alert('Avaliação cadastrada com sucesso!');
+            //window.location.href = '../html/avaliacoes.html';
+            return;
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('Erro ao cadastrar avaliação!');
+            return;
+        });
+
 }
 
 customElements.define("custom-modal", Modal);
-// $(async function () {
-//     const token = getToken();
-//     await axios.get('')
-//   $("products-select").selectize(options);
-// });

@@ -15,12 +15,12 @@ class Header extends HTMLElement {
                     <li><a href="index.html">Home</a></li>
                     <li><a href="avaliacao.html">Avaliações</a></li>
                 </ul>
-                <img src=${user.image} class="user-pic" onclick="toggleMenu()">
+                <img src=${user.image ? user.image : '../img/perfil.png'} class="user-pic" onclick="toggleMenu()">
 
                 <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
                         <div class="user-info">
-                            <img src=${user.image}>
+                            <img src=${user.image ? user.image : '../img/perfil.png'}>
                             <h2>${user.name}</h2>
                         </div>
                         <hr>

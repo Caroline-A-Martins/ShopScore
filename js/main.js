@@ -17,13 +17,6 @@ window.addEventListener('scroll', () => {
     header.classList.toggle('shadow', window.scrollY > 0);
 });
 
-// confg do arq pag-perfil.html
-
-document.querySelector("#firstName").addEventListener("input", function () {
-    const firstName = this.value;
-    console.log(`Primeiro nome: ${firstName}`);
-});
-
 function getToken() {
     const token = localStorage.getItem("token");
 
