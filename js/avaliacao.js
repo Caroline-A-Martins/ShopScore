@@ -95,7 +95,7 @@ async function avaliacoes() {
                         </div>
                     </div>
                     <p>${truncateText(aval.description, 50)}</p>
-                    <a class="ver-mais" href="#">Ver mais</a>
+                    <a class="ver-mais" href="../html/comentarios-avalia.html?id=${aval.id}">Ver mais</a>
                 </div>
             </div>
             `;
@@ -144,6 +144,104 @@ async function avaliar() {
             return;
         });
 
+}
+
+function getAvaliacao() {
+    let params = new URLSearchParams(window.location.search);
+    let id = params.get('id');
+    const token = localStorage.getItem('token');
+
+    if (id) {
+        axios.get(`https://shopscore-api.onrender.com/api/evaluations/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => {
+                let aval = response.data.data;
+
+                const id = document.getElementById('id');
+                id.value = aval.id;
+                const container = document.getElementById('avaliacao-container');
+
+                let stars = '';
+
+                if (aval.rating === 5) {
+                    stars = `<i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>`
+                } else if (aval.rating === 4) {
+                    stars = `<i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>`
+                } else if (aval.rating === 3) {
+                    stars = `<i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>`
+                } else if (aval.rating === 2) {
+                    stars = `<i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>`
+                } else {
+                    stars = `<i class="bx bxs-star"></i>`
+                }
+
+                const html = `<div class="inner-user">
+                <div class="card-user">
+                    <div class="card-ft">
+                        <img src=${aval.User.image ? aval.User.image : ''} alt=${aval.User.name}>
+                    </div>
+                    <div class="card-dados">
+                        <h1>${aval.User.name}</h1>
+                        <div class="stars">
+                            <span class="stars">
+                                ${stars}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <p>${aval.description}</p>
+                <span>${moment(aval.createdAt).format("LL")}</span>
+            </div>`
+
+                container.innerHTML += html;
+
+                const comentarios_container = document.getElementById('comentarios-container');
+                aval.Comments.forEach(comment => {
+
+                    const commentHtml = `<section class="card-comentarios">
+                    <div class="container" id="comentarios-container">
+                        <div class="inner-user">
+                            <div class="card-user">
+                                <div class="card-ft">
+                                    <img src=${comment.User.image ? comment.User.image : '../img/perfil.png'} alt="Foto de Perfil">
+                                </div>
+                                <div class="card-dados">
+                                    <h1>${comment.User.name}</h1>
+                                </div>
+                            </div>
+                            <p>${comment.comment}</p>
+                            <span>${moment(comment.createdAt).format("LL")}</span>
+                        </div>
+                    </div>
+                </section>`
+
+                    comentarios_container.innerHTML += commentHtml;
+
+                })
+
+            })
+            .catch((error) => {
+                alert('Avaliação não encontrada!');
+                console.error('Error:', error);
+            });
+    } else {
+        alert('Avaliação não encontrada!');
+        window.location.href = '../html/avaliacao.html';
+        return;
+    }
 }
 
 function truncateText(text, maxLength) {

@@ -1,51 +1,36 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const fazerComentarioBtn = document.getElementById('fazer-comentario');
+function abrirModalComentario() {
     const formularioComentario = document.getElementById('formulario-comentario');
 
-    // Esconde o formulário ao carregar a página
-    formularioComentario.style.display = 'none';
+    formularioComentario.style.display = 'block';
+}
 
-    // Evento de clique no botão para mostrar o formulário
-    fazerComentarioBtn.addEventListener('click', function () {
-        formularioComentario.style.display = 'block';
+async function comentar() {
+    const comment = document.getElementById('comentario').value;
+    const idevaluation = document.getElementById('id').value;
+    console.log(idevaluation)
+    const iduser = localStorage.getItem('id');
+    const token = localStorage.getItem('token');
+
+    const data = {
+        iduser,
+        idevaluation,
+        comment
+    }
+
+    await axios.post('https://shopscore-api.onrender.com/api/comments', data, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => {
+        alert('Comentário cadastrado com sucesso!');
+        window.location.href = `../html/comentarios-avalia.html?id=${idevaluation}`;
+        return;
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Erro ao cadastrar comentário!');
+        return;
     });
 
-    // Evento de envio do formulário
-    formularioComentario.addEventListener('submit', function (event) {
-        event.preventDefault(); // Previne o comportamento padrão de enviar o formulário
-
-        // Captura os valores dos campos do formulário
-        const nome = document.getElementById('nome').value;
-        const comentario = document.getElementById('comentario').value;
-
-        // Cria um novo elemento para exibir o comentário
-        const novoComentario = document.createElement('div');
-        novoComentario.classList.add('card-comentarios');
-
-        novoComentario.innerHTML = `
-            <div class="container">
-                <div class="inner-user">
-                    <div class="card-user">
-                        <div class="card-ft">
-                            <img src="../img/default-user-image.jpg" alt="Foto de Perfil">
-                        </div>
-                        <div class="card-dados">
-                            <h1>${nome}</h1>
-                        </div>
-                    </div>
-                    <p>${comentario}</p>
-                </div>
-            </div>
-        `;
-
-        // Adiciona o novo comentário ao container de comentários
-        comentariosContainer.appendChild(novoComentario);
-
-        // Limpa os campos do formulário
-        document.getElementById('nome').value = '';
-        document.getElementById('comentario').value = '';
-
-        // Esconde o formulário novamente
-        formularioComentario.style.display = 'none';
-    });
-});
+}
