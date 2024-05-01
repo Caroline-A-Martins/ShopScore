@@ -110,6 +110,42 @@ async function avaliacoes() {
         });
 }
 
+async function avaliar() {
+    var idstore = document.getElementById('lojas-select').value;
+    var idstoreproduct = document.getElementById('produtos-select').value;
+    var title = document.getElementById('titulo').value;
+    var description = document.getElementById('descricao').value;
+    var rating = document.getElementById('rating').value;
+    var token = localStorage.getItem('token');
+    var iduser = localStorage.getItem('id');
+
+    const data = {
+        iduser,
+        idstore,
+        idstoreproduct,
+        title,
+        description,
+        rating
+    }
+
+    await axios.post('https://shopscore-api.onrender.com/api/evaluations', data, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            alert('Avaliação cadastrada com sucesso!');
+            window.location.href = '../html/avaliacoes.html';
+            return;
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('Erro ao cadastrar avaliação!');
+            return;
+        });
+
+}
+
 function truncateText(text, maxLength) {
     if (text.length > maxLength) {
         return text.substring(0, maxLength - 3) + '...';
