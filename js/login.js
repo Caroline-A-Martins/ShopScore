@@ -1,10 +1,11 @@
 async function login() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    var type = document.querySelector('input[name="tipo"]:checked').value;
     var data = {
         email: email,
         password: password,
-        type: 1
+        type
     };
     await fetch('https://shopscore-api.onrender.com/api/login', {
         method: 'POST',
@@ -21,6 +22,7 @@ async function login() {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('id', data.data.id);
                 localStorage.setItem('user', JSON.stringify(data.data));
+                localStorage.setItem('type', type == 1 ? 'user' : 'store');
                 alert('Login realizado com sucesso!');
                 window.location.href = '../html/index.html';
                 return;
