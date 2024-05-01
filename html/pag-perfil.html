@@ -10,9 +10,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.perfil.css">
     <link rel="stylesheet" href="../css/header.css">
-    <!-- JS -->
-    <script src="../js/main.js"></script>
-    <script src="../js/header.js"></script>
     <link rel="stylesheet" href="../css/janela-avaliacao.css">
 
 </head>
@@ -25,9 +22,13 @@
             <h1>Perfil</h1>
 
             <div class="perfil-container">
-                <div class="perfil-img" id="perfil-img">
-                    <img src="../img/perfil.png" alt="Imagem do Usuário" id="imagem">
-                </div>
+
+                <input type="file" name="picture__input" id="picture__input" class="picture__input">
+                <label class="picture" for="picture__input" tabIndex="0" id="perfil-img">
+                    <span class="picture__image">Choose an image</span>
+                </label>
+
+
                 <div class="perfil-form">
                     <form class="fm-group" action="#">
                         <div class="input-group">
@@ -88,6 +89,7 @@
     <custom-modal></custom-modal>
 
     <!-- Scripts -->
+    <script src="../js/alterar-ft-perfil.js"></script>
     <script src="../js/janela-modal.js"></script>
     <script src="../js/func-modal.js"></script>
     <script src="../js/main.js"></script>

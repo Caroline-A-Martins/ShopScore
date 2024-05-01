@@ -44,21 +44,51 @@ body {
   display: flex;
 }
 
-.perfil-img {
-  padding: 25px 30px;
+.picture__input {
+  display: none;
 }
 
-.perfil-img img {
+.picture {
+  padding: 0 10px;
+  width: 300px;
+  height: 300px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 300ms ease-in-out, background 300ms ease-in-out;
   border-radius: 50%;
-  width: 250px;
   cursor: pointer;
-  transition: transform 0.3s ease;
   box-shadow: var(--box-shadow);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+.picture:hover {
+  color: #777;
+  background: #e4e4e4;
+}
+
+.picture:active {
+  border-color: turquoise;
+  color: turquoise;
+  background: #eee;
+}
+
+.picture:focus {
+  outline: none;
+}
+
+.picture__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .fm-group {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-left: 25px;
 }
 
 .perfil-form .input-group {
@@ -130,20 +160,21 @@ form .gender-inputs label {
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
   }
 
   .perfil-container {
-    order: -1; 
+    order: -1;
     margin-bottom: 20px;
   }
 
-  .perfil-img {
-    padding: 15px;
+  .picture {
+    width: 200px;
+    height: 200px;
   }
 
-  .perfil-img img {
-    width: 150px;
+  .picture img {
+    width: 200px;
   }
 
   .fm-group {
@@ -166,18 +197,16 @@ form .gender-inputs label {
   }
 
   .form h1 {
-    font-size: 2.8rem; 
+    font-size: 2.8rem;
   }
 
-  .perfil-img {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding: 20px; 
+  .picture {
+    width: 250px;
+    height: 250px;
   }
 
-  .perfil-img img {
-    width: 200px; 
+  .picture img {
+    width: 250px;
   }
 
   .perfil-form .input-group {
@@ -186,41 +215,49 @@ form .gender-inputs label {
   }
 
   .perfil-form form .input-group input {
-    width: calc(100% - 20px); 
+    width: calc(100% - 20px);
   }
 
   .perfil-form .input-btn button {
-    width: 160px; 
+    width: 160px;
     height: 50px;
-    font-size: 18px; 
+    font-size: 18px;
   }
 }
+
 @media (min-width: 1025px) {
   .container {
-    padding: 50px; 
+    padding: 50px;
   }
 
   .form h1 {
-    font-size: 3.2rem; 
+    font-size: 3.2rem;
   }
 
-  .perfil-img img {
-    width: 300px; 
+  .picture {
+    width: 300px;
+    height: 300px;
+  }
+
+  .picture img {
+    width: 300px;
   }
 
   .perfil-form .input-group {
-    margin-bottom: 20px; 
-    padding: 0 20px 0 0; 
+    margin-bottom: 20px;
+    padding: 0 20px 0 0;
   }
 
   .perfil-form form .input-group input {
-    height: 50px; 
-    font-size: 18px; 
+    height: 50px;
+    font-size: 18px;
   }
 
   .perfil-form .input-btn button {
-    width: 200px; 
+    width: 200px;
     height: 60px;
-    font-size: 22px; 
+    font-size: 22px;
   }
+
+
 }
