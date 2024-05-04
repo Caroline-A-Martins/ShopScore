@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+
+}
+
+/*variaveis*/
+:root {
+    --main-color: #223555;
+    --hover-main-color: #18263d;
+    --second-color: #768dc2;
+    --text-color: #1b1b1b;
+    --bg-color: #ebeae8;
+    --light-blue-color: #c4ddff;
+    --img-color: #5da9e7;
+    --input-color: #f4f7f7;
+    --box-shadow: 2px 2px 10px 4px #0e373626;
+}
+
+/*
+.btn {
+    padding: 5px 15px;
+    display: inline;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    position: fixed;
+    right: 1rem;
+    bottom: 10%;
+    z-index: 1;
+}
+
+.btn-modal {
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: var(--hover-main-color);
+}*/
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #0000008c;
+}
+
+.form-container {
+    width: 70%;
+    max-width: 500px;
+    min-height: 250px;
+    background-color: #ffffff62;
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 10px;
+}
+
+
+.fechar {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14pt;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.btns {
+    text-align: center;
+    padding: 25px;
+}
+
+.btns button {
+    margin: 0 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    background: var(--main-color);
+    color: white;
+}
+
+.input-group label,
+p {
+    display: inline-block;
+    width: 100%;
+    margin-right: 10px;
+    padding: 5.5px 0;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea,
+.n-encontrado input {
+    width: 100%;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5.5px 0;
+}
+
+.input-group textarea {
+    margin-bottom: 15px;
+    resize: none;
+    font-size: 15px;
+}
+
+.avaliacao {
+    display: flex;
+    justify-content: center;
+}
+
+.star-icon {
+    list-style-type: none;
+    cursor: pointer;
+    color: var(--main-color);
+    font-size: 50px;
+    padding: 0 10px;
+}
+
+.star-icon::before {
+    content: "\2605";
+}
+
+.star-icon.ativo~.star-icon::before {
+    content: "\2606";
+}
+
+.avaliacao:hover .star-icon::before {
+    content: "\2605";
+}
+
+.star-icon:hover~.star-icon::before {
+    content: "\2606";
+}
+
+.btn-enviar {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    height: 50px;
+    padding: 5px 15px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--box-shadow);
+}
+
+.n-encontrado {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.icon-span-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+
+.icon-wrapper {
+    margin-left: 10px;
+    padding: 1.5px 8.5px;
+    border-radius: 5px;
+    background: var(--main-color);
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.btn-adicionar-imagem {
+    margin-bottom: 15px;
+    width: 40%;
+    padding: 10px;
+    border-radius: 5px;
+    background: var(--main-color);
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+}
