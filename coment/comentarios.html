@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOX ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="comentarios.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/janela-avaliacao.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Navbar-->
+    <custom-header></custom-header>
+    <div class="back">
+        <span>
+            <a href="../html/avaliacao.html"><i class='bx bx-arrow-back'></i></a>
+        </span>
+    </div>
+    <div class="container-flex">
+        <section class="card">
+            <div class="container">
+                <div class="titulo">
+                    Blusa de lã
+                </div>
+                <div class="inner-user">
+                    <div class="card-user">
+                        <div class="card-ft">
+                            <img src="../img/image.png" alt="Foto de Perfil">
+                        </div>
+                        <div class="card-dados">
+                            <h1>Ovelha Peluda</h1>
+                            <div class="stars">
+                                <span class="stars">
+                                    <i class="bx bxs-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sed saepe eos sit suscipit
+                        quasi
+                        asperiores corrupti officia commodi corporis facilis, iste alias quia beatae? Optio ducimus
+                        recusandae ea. Sapiente voluptatum vel quisquam, mollitia eveniet ipsa rem fugit alias
+                        saepe.
+                        Obcaecati, at! Eligendi quidem eum ea quod ipsa fuga officiis!</p>
+                    <span>26 Dezembro 2023</span>
+
+
+                    <div class="anexos">
+                        <!-- Aqui você pode adicionar suas imagens -->
+                        <img src="../img/esquilo.png" alt="Anexo 1">
+                        <img src="../img/clientes/rev3.jpg" alt="Anexo 2">
+                        <img src="../img/clientes/rev3.jpg" alt="Anexo 3">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="comentarios">
+            <h1>
+                <strong>Comentários</strong>
+            </h1>
+            <!--<button id="fazer-comentario">Fazer Comentário</button>-->
+        </div>
+
+        <section class="card-comentarios">
+            <div class="container" id="comentarios-container">
+                <div class="inner-user">
+                    <div class="card-user">
+                        <div class="card-ft">
+                            <img src="../img/esquilo.png" alt="Foto de Perfil">
+                        </div>
+                        <div class="card-dados">
+                            <h1>Ovelha Peluda</h1>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sed saepe eos sit suscipit
+                        quasi
+                        asperiores corrupti officia commodi corporis facilis</p>
+                    <span>28 Dezembro 2023</span>
+
+                </div>
+            </div>
+        </section>
+        <section class="card-comentarios">
+            <div class="container">
+                <div class="inner-user">
+                    <div class="card-user">
+                        <div class="card-ft">
+                            <img src="../img/clientes/rev1.jpg" alt="Foto de Perfil">
+                        </div>
+                        <div class="card-dados">
+                            <h1>Mulher Bonita</h1>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sed saepe eos sit suscipit
+                        quasi
+                        asperiores corrupti officia commodi corporis facilis
+                        <i class='bx bxs-angry'></i>
+                        <i class='bx bxs-angry'></i>
+                        <i class='bx bxs-angry'></i>
+                    </p>
+                    <span>28 Dezembro 2023</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="container card-fazer-comentarios">
+            <div class="fazer-comentario">
+                <h2>Fazer Comentário</h2>
+                <form id="formulario-comentario">
+                    <textarea id="comentario" name="comentario" rows="4" required></textarea>
+                    <div class="enviar-comentario">
+                        <button class="envia" type="submit">Enviar Comentário</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulário de comentário 
+        <form id="formulario-comentario">
+        <label for="comentario">Comentário:</label><br>
+        <textarea id="comentario" name="comentario" rows="4" required></textarea><br>
+
+        <button class="enviar-comentario" type="submit">Enviar Comentário</button>
+    </form>
+    <custom-modal></custom-modal>
+    -->
+
+    <!-- Scripts -->
+    <script src="../js/formularioComentario.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/user-janela.js"></script>
+    <script src="../js/avaliacao.js"></script>
+</body>
+
+</html>
