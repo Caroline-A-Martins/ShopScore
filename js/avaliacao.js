@@ -2,8 +2,11 @@ moment.locale('pt-br');
 async function avaliacoes() {
     var search = document.getElementById('searchInput').value;
     var token = localStorage.getItem('token');
+    const type = localStorage.getItem('type');
 
-    await axios.get(`https://shopscore-api.onrender.com/api/evaluations?search=${search}`, {
+    const query = type == 'store'? `&idstore=${localStorage.getItem('id')}` : '';
+
+    await axios.get(`https://shopscore-api.onrender.com/api/evaluations?search=${search}${query}`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }

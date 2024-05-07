@@ -1,6 +1,7 @@
 class Header extends HTMLElement {
     connectedCallback() {
         const user = JSON.parse(localStorage.getItem('user'));
+        const type = localStorage.getItem('type');
         this.innerHTML = `
             <!-- Inicio Navbar -->
             <header>
@@ -20,11 +21,11 @@ class Header extends HTMLElement {
                     <div class="sub-menu">
                         <div class="user-info">
                             <img src=${user.image ? user.image : '../img/perfil.png'}>
-                            <h2>${user.name}</h2>
+                            <h2>${type == 'user' ? user.name : user.fantasyName}</h2>
                         </div>
                         <hr>
         
-                        <a href="../html/pag-perfil.html" class="sub-menu-link">
+                        <a href="../html/${type == 'user' ? 'pag-perfil.html' : 'pag-perfil-loja.html'}" class="sub-menu-link">
                             <i class='bx bx-user'></i>
                             <p>Perfil</p>
                             <span>></span>

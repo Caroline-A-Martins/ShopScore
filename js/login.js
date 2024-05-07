@@ -17,7 +17,6 @@ async function login() {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data.data);
             if (data.success === true) {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('id', data.data.id);

@@ -25,18 +25,19 @@
             <h1>Perfil</h1>
 
             <div class="perfil-container">
-
                 <input type="file" name="picture__input" id="picture__input" class="picture__input">
                 <label class="picture" for="picture__input" tabIndex="0" id="perfil-img">
                     <span class="picture__image">Choose an image</span>
                 </label>
-
-
                 <div class="perfil-form">
-                    <form class="fm-group" action="#">
+                    <form class="fm-group" action="#" enctype="multipart/form-data">
                         <div class="input-group">
-                            <label for="nome"> Nome Completo</label>
-                            <input type="text" id="nome" required>
+                            <label for="nome-fantasia">Nome Fantasia</label>
+                            <input type="text" id="nome-fantasia" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="razao-social">Razão Social</label>
+                            <input type="text" id="razao-social" required>
                         </div>
                         <div class="input-group">
                             <label for="email">E-mail</label>
@@ -44,46 +45,25 @@
                         </div>
                         <div class="input-group">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" id="telefone" required>
+                            <input type="tel" id="telefone">
                         </div>
                         <div class="input-group">
-                            <label for="data-nasc">Data de Nascimento</label>
-                            <input type="date" id="data-nasc" disabled>
+                            <label for="celular">Celular</label>
+                            <input type="tel" id="celular" required>
                         </div>
                         <div class="input-group">
-                            <label for="cpf">CPF</label>
-                            <input type="text" id="cpf" disabled>
+                            <label for="cnpj">CNPJ</label>
+                            <input type="text" id="cnpj" disabled>
                         </div>
 
-                        <div class="gender-inputs">
-                            <label>Gênero</label>
-
-                            <div class="gender-group">
-                                <div class="gender-input">
-                                    <input type="radio" name="genero" value="1" disabled>
-                                    <span>Feminino<span>
-                                </div>
-
-                                <div class="gender-input">
-                                    <input type="radio" name="genero" value="2" disabled>
-                                    <span>Masculino</span>
-                                </div>
-
-                                <div class="gender-input">
-                                    <input type="radio" name="genero" value="0" disabled>
-                                    <span>Outros</span>
-                                </div>
-
-                                <div class="gender-input">
-                                    <input type="radio" name="genero" value="3" disabled>
-                                    <span>Prefiro não dizer</span>
-                                </div>
-                            </div>
+                        <div class="input-group">
+                            <label for="descricao">Descrição</label>
+                            <input type="text" id="descricao" required>
                         </div>
 
                     </form>
                     <div class="input-btn">
-                        <button onclick="editar()">Editar</button>
+                        <button onclick="editarLoja()">Editar</button>
                     </div>
                 </div>
             </div>
@@ -101,13 +81,14 @@
     <script src="../js/pag-perfil.js"></script>
     <script>
         const user = JSON.parse(localStorage.getItem('user'));
-        document.getElementById('nome').value = user.name;
+
+        document.getElementById('nome-fantasia').value = user.fantasyName;
+        document.getElementById('razao-social').value = user.corporateName;
         document.getElementById('email').value = user.email;
         document.getElementById('telefone').value = user.telephone;
-        document.getElementById('data-nasc').value = new Date(user.birthDate).toISOString().split('T')[0];
-        document.getElementById('cpf').value = user.cpf;
-        document.querySelector(`input[name="genero"][value="${user.gender}"]`).checked = true;
-
+        document.getElementById('celular').value = user.cell;
+        document.getElementById('cnpj').value = user.cnpj;
+        document.getElementById('descricao').value = user.description;
         if (user.image) {
             const pictureImage = document.querySelector(".picture__image");
             const img = document.createElement("img");
