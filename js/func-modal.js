@@ -1,8 +1,8 @@
 class Modal extends HTMLElement {
     async connectedCallback() {
+        const type = localStorage.getItem('type');
         this.innerHTML = `
-        <div onclick="openModal()" class="btn">+</div>
-
+        ${type === 'user' ? '<div onclick="openModal()" class="btn">+</div>' : ''}
 <div id="modal-container" class="modal-container">
     <div class="modal">
         <button class="fechar" id="fechar">X</button>

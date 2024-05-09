@@ -4,7 +4,7 @@ async function avaliacoes() {
     var token = localStorage.getItem('token');
     const type = localStorage.getItem('type');
 
-    const query = type == 'store'? `&idstore=${localStorage.getItem('id')}` : '';
+    const query = type == 'store' ? `&idstore=${localStorage.getItem('id')}` : '';
 
     await axios.get(`https://shopscore-api.onrender.com/api/evaluations?search=${search}${query}`, {
         headers: {
@@ -149,13 +149,13 @@ async function avaliar() {
 
 }
 
-function getAvaliacao() {
+async function getAvaliacao() {
     let params = new URLSearchParams(window.location.search);
     let id = params.get('id');
     const token = localStorage.getItem('token');
 
     if (id) {
-        axios.get(`https://shopscore-api.onrender.com/api/evaluations/${id}`, {
+        await axios.get(`https://shopscore-api.onrender.com/api/evaluations/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -191,27 +191,66 @@ function getAvaliacao() {
                     stars = `<i class="bx bxs-star"></i>`
                 }
 
-                const html = `<div class="inner-user">
-                <div class="card-user">
-                    <div class="card-ft">
-                        <img src=${aval.User.image ? aval.User.image : ''} alt=${aval.User.name}>
+                let anexos = '';
+                if (aval.Annexes.length > 0) {
+                    anexos = `<div class="anexos">`;
+                    aval.Annexes.forEach(annex => {
+                        anexos += `<img src=${annex.url} alt=${annex.name}>`
+                    })
+                    anexos += `</div>`;
+                }
+
+                const html = `
+                <div class="container">
+                    <div class="titulo">
+                        ${aval.title}
                     </div>
-                    <div class="card-dados">
-                        <h1>${aval.User.name}</h1>
-                        <div class="stars">
-                            <span class="stars">
-                                ${stars}
-                            </span>
+                    <div class="inner-user">
+                    <div class="card-user">
+                        <div class="card-ft">
+                            <img src=${aval.User.image ? aval.User.image : ''} alt=${aval.User.name}>
+                        </div>
+                        <div class="card-dados">
+                            <h1>${aval.User.name}</h1>
+                            <div class="stars">
+                                <span class="stars">
+                                    ${stars}
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    <p>${aval.description}</p>
+                    <span>${moment(aval.createdAt).format("LL")}</span>
+                    ${anexos}
                 </div>
-                <p>${aval.description}</p>
-                <span>${moment(aval.createdAt).format("LL")}</span>
             </div>`
 
                 container.innerHTML += html;
 
                 const comentarios_container = document.getElementById('comentarios-container');
+
+                if (aval.answer) {
+                    comentarios_container.innerHTML += `<section class="card-comentarios">
+                    <div class="container" id="comentarios-container">
+                        <div class="inner-user">
+                            <div class="card-user">
+                                <div class="card-ft">
+                                    <img src=${aval.Store.image ? aval.Store.image : '../img/perfil.png'} alt="Foto de Perfil">
+                                </div>
+                                <div class="card-dados">
+                                    <h1>${aval.Store.fantasyName} (RESPOSTA DA EMPRESA)</h1>
+                                </div>
+                            </div>
+                            <p>${aval.answer}</p>
+                            <span>${moment(aval.updatedAt).format("LL")}</span>
+                        </div>
+                    </div>
+                </section>`
+
+                    const fazerComentario = document.getElementById('fazer-comentario');
+                    fazerComentario.style.display = 'none';
+                }
+
                 aval.Comments.forEach(comment => {
 
                     const commentHtml = `<section class="card-comentarios">
@@ -238,7 +277,7 @@ function getAvaliacao() {
             })
             .catch((error) => {
                 alert('Avaliação não encontrada!');
-                console.error('Error:', error);
+                console.error('Error:', error.message);
             });
     } else {
         alert('Avaliação não encontrada!');

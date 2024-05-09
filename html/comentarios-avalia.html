@@ -9,6 +9,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.comentarios-avalia.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/comentarios.css">
     <link rel="stylesheet" href="../css/janela-avaliacao.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
         integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
@@ -24,34 +25,38 @@
     <custom-header></custom-header>
     <div class="back">
         <span>
-            <i class='bx bx-arrow-back'></i>
+            <a href="./avaliacao.html"><i class='bx bx-arrow-back'></i></a>
         </span>
     </div>
+    <div class="container-flex">
+        <section class="card">
+            <div class="container" id="avaliacao-container">
 
-    <section class="card">
-        <div class="container" id="avaliacao-container">
+            </div>
+        </section>
 
+        <div class="comentarios">
+            <h1>
+                <strong>Comentários</strong>
+            </h1>
+            <button id="fazer-comentario" onclick="abrirModalComentario()">Fazer Comentário</button>
         </div>
-    </section>
 
-    <div class="comentarios">
-        <h1>
-            <strong>Comentários</strong>
-        </h1>
-        <button id="fazer-comentario" onclick="abrirModalComentario()">Fazer Comentário</button>
-    </div>
+        <div class="container card-fazer-comentarios" id="form-div" style="display: none;">
+            <div class="fazer-comentario">
+                <h2>Fazer Comentário</h2>
+                <form id="formulario-comentario" action="#">
+                    <input type="hidden" id="id" name="id">
+                    <textarea id="comentario" name="comentario" rows="4" required></textarea>
+                    <div class="enviar-comentario">
+                        <button class="envia" onclick="comentar()">Enviar Comentário</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    <form id="formulario-comentario" style="display: none;" action="#">
-
-        <input type="hidden" id="id" name="id" value="">
-
-        <label for="comentario">Comentário:</label><br>
-        <textarea id="comentario" name="comentario" rows="4" required></textarea><br>
-
-        <button onclick="comentar()">Enviar Comentário</button>
-    </form>
-
-    <div id="comentarios-container">
+        <div id="comentarios-container">
+        </div>
     </div>
 
     <!-- Scripts -->
