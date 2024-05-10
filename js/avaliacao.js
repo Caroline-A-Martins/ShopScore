@@ -114,11 +114,32 @@ async function avaliacoes() {
 }
 
 async function avaliar() {
+    let cadastrarLoja, cadastrarProdutoLoja; 
+
     var idstore = document.getElementById('lojas-select').value;
     var idstoreproduct = document.getElementById('produtos-select').value;
     var title = document.getElementById('titulo').value;
     var description = document.getElementById('descricao').value;
     var rating = document.getElementById('rating').value;
+
+    var cnpj = document.getElementById('cnpj').value;
+
+    if (cnpj != '') {
+        const loja = await pegarInfos();
+        cadastrarLoja = await cadastrarLoja(loja);
+        idstore = cadastrarLoja.id;
+    }
+
+    var produto = document.getElementById('produto').value;
+    var descricao_prod = document.getElementById('descricao_prod').value;
+    var imagem = document.getElementById('imagem').files[0];
+
+    if (produto != '') {
+        const cadastrarProduto = await cadastrarProduto(produto, descricao_prod, imagem);
+        cadastrarProdutoLoja = await cadastrarProdutoLoja(cadastrarProduto.id, idstore);
+        idstoreproduct = cadastrarProduto.id;
+    }
+
     var token = localStorage.getItem('token');
     var iduser = localStorage.getItem('id');
 
@@ -153,6 +174,7 @@ async function getAvaliacao() {
     let params = new URLSearchParams(window.location.search);
     let id = params.get('id');
     const token = localStorage.getItem('token');
+    const type = localStorage.getItem('type');
 
     if (id) {
         await axios.get(`https://shopscore-api.onrender.com/api/evaluations/${id}`, {
@@ -247,8 +269,10 @@ async function getAvaliacao() {
                     </div>
                 </section>`
 
-                    const fazerComentario = document.getElementById('fazer-comentario');
-                    fazerComentario.style.display = 'none';
+                    if (type === 'store') {
+                        const fazerComentario = document.getElementById('fazer-comentario');
+                        fazerComentario.style.display = 'none';
+                    }
                 }
 
                 aval.Comments.forEach(comment => {
@@ -284,6 +308,21 @@ async function getAvaliacao() {
         window.location.href = '../html/avaliacao.html';
         return;
     }
+}
+
+async function pegarInfos() {
+    const cnpj = document.getElementById('cnpj').value;
+
+    await axios.get(`https://shopscore-api.onrender.com/api/stores/cnpj/info?cnpj=${cnpj}`)
+    .then(response => {
+        let data = response.data.data;
+
+        return data;
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
 }
 
 function truncateText(text, maxLength) {

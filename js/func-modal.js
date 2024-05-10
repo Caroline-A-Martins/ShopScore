@@ -3,66 +3,63 @@ class Modal extends HTMLElement {
         const type = localStorage.getItem('type');
         this.innerHTML = `
         ${type === 'user' ? '<div onclick="openModal()" class="btn">+</div>' : ''}
-<div id="modal-container" class="modal-container">
-    <div class="modal">
-        <button class="fechar" id="fechar">X</button>
-        <h1>Inserir Avaliação</h1>
-        <form enctype="multipart/form-data" action="#">
-            <div class="input-group">
-
-                <label for="lojas-select">Loja</label>
-                <select id="lojas-select" onchange="getProdutos()" name="idstore">
-                </select>
-
-                <label for="cnpj">Não encontrou a loja?
-                <button class="icon-wrapper" onclick="showCnpj()">
-                    <div class="text">+</div>
-                </button>
-            </label>
-
-                <div class="n-encontra">                    
-                    <input class="input-n-encontra" type="text" id="cnpj" name="cnpj" placeholder="Insira o CNPJ...">
-                </div>
-
-                <label for="produtos-select">Produto</label>
-                <select id="produtos-select" name="idstoreproduct"></select>
-
-                <label for="produto">Não encontrou o produto?
-                <button class="icon-wrapper" onclick="showProduct()">
-                    <div class="text">+</div>
-                </button>
-
-            </label>
-                <div class="n-encontra">                    
+        <dialog id="modal-container" class="modal-container">
+            <h2>Inserir Avaliação</h2>
+            <form enctype="multipart/form-data" action="#">
+                <div class="input-group">
+                    <label for="lojas-select">Loja</label>
+                    <select id="lojas-select" onchange="getProdutos()" name="idstore"></select>
+        
+                    <div class="n-encontra">
+                    <label for="cnpj">Não encontrou a loja?</label>
+                    <button class="icon-wrapper" onclick="showCnpj()">+</button>
+                    </div>
+        
+                    <div class="oculto" id="loja-input">
+                    <input type="text" id="cnpj" name="cnpj" placeholder="Insira o CNPJ...">
+                    </div>
+        
+        
+                    <label for="produtos-select">Produto</label>
+                    <select id="produtos-select" name="idstoreproduct"></select>
+        
+                    <div class="n-encontra">
+                    <label for="produto">Não encontrou o produto?</label>
+                    <button class="icon-wrapper" onclick="showProduct()">+</button>
+                    </div>
+        
+                    <div class="oculto" id="produto-input">
                     <input type="text" id="produto" name="produto" placeholder="Insira o nome do produto...">
-
-                    <input type="text" id="descricao_prod" name="descricao_prod" placeholder="Insira a descrição..." >
-
+                    <input type="text" id="descricao_prod" name="descricao_prod" placeholder="Insira a descrição...">
                     <input type="file" id="imagem" name="imagem" accept="image/*">
+                    </div>
+        
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo">
+        
+                    <label for="descricao">Descrição</label>
+                    <textarea name="descricao" id="descricao" cols="50" rows="5"></textarea>
                 </div>
-
-                <label for="titulo">Título</label>
-                <input type="text" id="titulo" name="titulo">
-
-                <label for="descricao">Descrição</label>
-                <textarea name="descricao" id="descricao" cols="50" rows="5"></textarea>
-            </div>
-            <div class="input-group avaliacao-container">
-                <ul class="avaliacao">
+        
+                <div class="input-group">
+                    <ul class="avaliacao">
                     <li class="star-icon ativo" data-avaliacao="1" onclick="setNote(1)"></li>
                     <li class="star-icon" data-avaliacao="2" onclick="setNote(2)"></li>
                     <li class="star-icon" data-avaliacao="3" onclick="setNote(3)"></li>
                     <li class="star-icon" data-avaliacao="4" onclick="setNote(4)"></li>
                     <li class="star-icon" data-avaliacao="5" onclick="setNote(5)"></li>
-                </ul>
-            </div>
-            <input type="hidden" id="rating" name="rating" value="1">
-            <div class="input-group">
-                <button class="btn-enviar" onclick="avaliar()">Enviar</button>
-            </div>
-        </form>
-    </div>
-</div>
+                    </ul>
+                </div>
+        
+                <input type="hidden" id="rating" name="rating" value="1">
+        
+                <div class="input-group">
+                    <button class="btn-enviar" onclick="avaliar()">Enviar</button>
+                </div>
+            </form>
+
+            <button class="fechar" onclick="fecharModal()">Fechar</button>
+        </dialog>
 `;
 
         try {
