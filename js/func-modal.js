@@ -1,7 +1,8 @@
 class Modal extends HTMLElement {
     async connectedCallback() {
         this.innerHTML = `
-        <div onclick="openModal()" class="btn">+</div>
+        <!-- Modal trigger button -->
+<button class="btn" onclick="openModal()">+</button>
 
 <div id="modal-container" class="modal-container">
     <div class="modal">
