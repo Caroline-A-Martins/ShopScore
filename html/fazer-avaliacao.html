@@ -32,71 +32,59 @@
     <!-- card container -->
     <div class="container-flex">
         <h1>Inserir Avaliação</h1>
-        <form enctype="multipart/form-data" action="#">
-            <div class="input-group">
-                <label for="lojas-select">Loja</label>
-                <select id="lojas-select" onchange="getProdutos()" name="idstore"></select>
+        <div class="input-group">
+            <label for="lojas-select">Loja</label>
+            <select id="lojas-select" onchange="getProdutos()" name="idstore"></select>
 
-                <div class="n-encontra">
-                    <label for="cnpj">Não encontrou a loja?</label>
-                    <button class="icon-wrapper" onclick="showCnpj()">+</button>
-                </div>
-
-                <div class="oculto" id="loja-input">
-                    <label for="cnpj">CNPJ</label>
-                    <input type="text" id="cnpj" name="cnpj">
-                </div>
-
-
-                <label for="produtos-select">Produto</label>
-                <select id="produtos-select" name="idstoreproduct"></select>
-
-                <div class="n-encontra">
-                    <label for="produto">Não encontrou o produto?</label>
-                    <button class="icon-wrapper" onclick="showProduct()">+</button>
-                </div>
-
-                <div class="oculto" id="produto-input">
-                    <label for="produto">Nome Produto</label>
-                    <input type="text" id="produto" name="produto">
-
-                    <label for="descricao_prod">Descrição Produto</label>
-                    <input type="text" id="descricao_prod" name="descricao_prod">
-
-                    <label for="imagem">
-                        <i class='bx bx-upload upload-icon'></i>
-                        <input type="file" id="imagem" name="imagem" accept="image/*" style="display: none;" onchange="limitarArquivos(this)">
-                    </label>
-                </div>
-
-                <label for="titulo">Título</label>
-                <input type="text" id="titulo" name="titulo">
-
-                <label for="descricao">Descrição</label>
-                <textarea name="descricao" id="descricao" cols="50" rows="5"></textarea>
+            <div class="n-encontra">
+                <label for="cnpj">Não encontrou a loja?</label>
+                <button class="icon-wrapper" onclick="showCnpj()">+</button>
             </div>
 
-            <div class="input-group">
-                <ul class="avaliacao">
-                    <li class="star-icon ativo" data-avaliacao="1" onclick="setNote(1)"></li>
-                    <li class="star-icon" data-avaliacao="2" onclick="setNote(2)"></li>
-                    <li class="star-icon" data-avaliacao="3" onclick="setNote(3)"></li>
-                    <li class="star-icon" data-avaliacao="4" onclick="setNote(4)"></li>
-                    <li class="star-icon" data-avaliacao="5" onclick="setNote(5)"></li>
-                </ul>
+            <div class="oculto" id="loja-input">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" id="cnpj" name="cnpj">
             </div>
+
+
+            <label for="produtos-select">Produto</label>
+            <select id="produtos-select" name="idstoreproduct"></select>
+
+            <div class="n-encontra">
+                <label for="produto">Não encontrou o produto?</label>
+                <button class="icon-wrapper" onclick="showProduct()">+</button>
+            </div>
+
+            <div class="oculto" id="produto-input">
+                <label for="produto">Nome Produto</label>
+                <input type="text" id="produto" name="produto">
+            </div>
+
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo">
+
+            <label for="descricao">Descrição</label>
+            <textarea name="descricao" id="descricao" cols="50" rows="5"></textarea>
+
+            <label for="imagem">Anexos</label>
+            <input type="file" id="imagens" name="imagens[]" accept="image/*" multiple onchange="limitarArquivos(this)">
+
+            <ul class="avaliacao">
+                <li class="star-icon ativo" data-avaliacao="1" onclick="setNote(1)"></li>
+                <li class="star-icon" data-avaliacao="2" onclick="setNote(2)"></li>
+                <li class="star-icon" data-avaliacao="3" onclick="setNote(3)"></li>
+                <li class="star-icon" data-avaliacao="4" onclick="setNote(4)"></li>
+                <li class="star-icon" data-avaliacao="5" onclick="setNote(5)"></li>
+            </ul>
 
             <input type="hidden" id="rating" name="rating" value="1">
 
-            <div class="input-group">
-                <button class="btn-enviar" onclick="avaliar()">Enviar</button>
-            </div>
-        </form>
+            <button class="btn-enviar" onclick="avaliar()">Enviar</button>
+        </div>
     </div>
 
     <!-- Scripts -->
     <script src="../js/janela-modal.js"></script>
-    <script src="../js/func-modal.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/header.js"></script>
     <script src="../js/user-janela.js"></script>
@@ -104,13 +92,6 @@
     <script>
         getToken()
         getLojas()
-
-        function limitarArquivos(input) {
-            if (input.files.length > 3) {
-                alert('Você só pode selecionar no máximo 5 arquivos!');
-                input.value = '';
-            }
-        }
     </script>
 </body>
 

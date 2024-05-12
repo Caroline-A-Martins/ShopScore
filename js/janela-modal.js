@@ -56,6 +56,13 @@ function setNote() {
     document.getElementById('rating').value = rating;
 }
 
+function limitarArquivos(input) {
+    if (input.files.length > 3) {
+        alert('Você só pode selecionar no máximo 3 arquivos!');
+        input.value = '';
+    }
+}
+
 async function getLojas() {
     try {
         const token = localStorage.getItem('token');

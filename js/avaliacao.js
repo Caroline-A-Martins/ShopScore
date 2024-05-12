@@ -6,7 +6,7 @@ async function avaliacoes() {
 
     const query = type == 'store' ? `&idstore=${localStorage.getItem('id')}` : '';
 
-    await axios.get(`https://shopscore-api.onrender.com/api/evaluations?search=${search}${query}`, {
+    await axios.get(`https://shopscore-api.onrender.com/api/evaluations?search=${search}${query}&limit=30`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -80,7 +80,7 @@ async function avaliacoes() {
             <div class="card">
                 <!-- img -->
                 <div class="card-img">
-                    <img src=${aval.StoreProduct.Product.image} alt=${aval.StoreProduct.Product.name}>
+                    <img src=${aval.StoreProduct.Product.image ? aval.StoreProduct.Product.image : '../img/sobre.jpg'} alt=${aval.StoreProduct.Product.name}>
                 </div>
 
                 <!-- text -->
@@ -114,31 +114,33 @@ async function avaliacoes() {
 }
 
 async function avaliar() {
-    let cadastrarLoja, cadastrarProdutoLoja; 
+    let lojaData, produtoLojaData;
 
     var idstore = document.getElementById('lojas-select').value;
     var idstoreproduct = document.getElementById('produtos-select').value;
     var title = document.getElementById('titulo').value;
     var description = document.getElementById('descricao').value;
     var rating = document.getElementById('rating').value;
+    var imagem = document.getElementById('imagens').files;
 
     var cnpj = document.getElementById('cnpj').value;
 
     if (cnpj != '') {
         const loja = await pegarInfos();
-        cadastrarLoja = await cadastrarLoja(loja);
-        idstore = cadastrarLoja.id;
+
+        lojaData = await cadastrarLoja(loja);
+
+        idstore = lojaData.id;
     }
 
     var produto = document.getElementById('produto').value;
-    var descricao_prod = document.getElementById('descricao_prod').value;
-    var imagem = document.getElementById('imagem').files[0];
 
     if (produto != '') {
-        const cadastrarProduto = await cadastrarProduto(produto, descricao_prod, imagem);
-        cadastrarProdutoLoja = await cadastrarProdutoLoja(cadastrarProduto.id, idstore);
-        idstoreproduct = cadastrarProduto.id;
+        const produtoData = await cadastrarProduto({ name: produto });
+        produtoLojaData = await cadastrarProdutoLoja(produtoData.id, idstore);
+        idstoreproduct = produtoLojaData.id;
     }
+
 
     var token = localStorage.getItem('token');
     var iduser = localStorage.getItem('id');
@@ -152,6 +154,15 @@ async function avaliar() {
         rating
     }
 
+    if (imagem.length > 0) {
+        const images = await saveImages(imagem, 'evaluations');
+        console.log(images);
+
+        data.images = images;
+    }
+
+    console.log(data)
+
     await axios.post('https://shopscore-api.onrender.com/api/evaluations', data, {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -159,7 +170,7 @@ async function avaliar() {
     })
         .then(response => {
             alert('Avaliação cadastrada com sucesso!');
-            window.location.href = '../html/avaliacoes.html';
+            window.location.href = '../html/avaliacao.html';
             return;
         })
         .catch((error) => {
@@ -213,11 +224,12 @@ async function getAvaliacao() {
                     stars = `<i class="bx bxs-star"></i>`
                 }
 
+                console.log(aval.Annexes);
                 let anexos = '';
                 if (aval.Annexes.length > 0) {
                     anexos = `<div class="anexos">`;
                     aval.Annexes.forEach(annex => {
-                        anexos += `<img src=${annex.url} alt=${annex.name}>`
+                        anexos += `<img src=${annex.image} alt=${annex.name}>`
                     })
                     anexos += `</div>`;
                 }
@@ -313,16 +325,86 @@ async function getAvaliacao() {
 async function pegarInfos() {
     const cnpj = document.getElementById('cnpj').value;
 
-    await axios.get(`https://shopscore-api.onrender.com/api/stores/cnpj/info?cnpj=${cnpj}`)
-    .then(response => {
-        let data = response.data.data;
+    const response = await axios.get(`https://shopscore-api.onrender.com/api/stores/cnpj/info?cnpj=${cnpj}`)
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 
-        return data;
+    return response.data.data;
+}
+
+async function cadastrarLoja(loja) {
+    const token = localStorage.getItem('token');
+
+    const response = await axios.post('https://shopscore-api.onrender.com/api/stores', loja, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
     })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 
+    return response.data.data;
+}
+
+async function cadastrarProduto(produto) {
+    try {
+        const token = localStorage.getItem('token');
+
+        const response = await axios.post('https://shopscore-api.onrender.com/api/products', produto, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }).catch((error) => {
+            console.error('Error:', error);
+        });
+
+        return response.data.data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+async function cadastrarProdutoLoja(idproduto, idloja) {
+    try {
+        const token = localStorage.getItem('token');
+
+        const response = await axios.post(`https://shopscore-api.onrender.com/api/products/${idproduto}`, { idstore: idloja }, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }).catch((error) => {
+            console.error('Error:', error);
+        });
+
+        return response.data.data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+async function saveImages(images, folder) {
+    const token = localStorage.getItem('token');
+    const urls = [];
+    
+    for (let i = 0; i < images.length; i++) {
+        const formData = new FormData();
+        formData.append('file', images[i]);
+        const response = await axios.post(`https://shopscore-api.onrender.com/api/files/${folder}`, formData, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+        urls.push(response.data.data.urls[0]);
+    }
+
+    return urls;
 }
 
 function truncateText(text, maxLength) {
