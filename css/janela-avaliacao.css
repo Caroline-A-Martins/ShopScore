@@ -58,33 +58,23 @@ dialog {
 }
 
 
-<<<<<<< HEAD
 .modal h1 {
   margin-bottom: 20px;
 }
 
-form .input-group label {
-=======
+
 label {
->>>>>>> 6a0234bd82ca933304d0603703e5df54f52b226c
   color: var(--text-color);
   display: block;
   margin-right: 10px;
 }
 
-<<<<<<< HEAD
-
-
 .form-group .input {
   padding: 0 20px 10px 0;
 }
 
-form .input-group input,
-form .input-group select {
-=======
 input,
 select {
->>>>>>> 6a0234bd82ca933304d0603703e5df54f52b226c
   width: 100%;
   height: 10px;
   border-radius: 5px;
