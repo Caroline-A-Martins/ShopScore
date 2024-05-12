@@ -33,7 +33,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 100px;
+    padding: 10px 100px;
     transition: .5s linear;
     background: var(--main-color);
 }

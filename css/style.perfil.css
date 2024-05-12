@@ -29,7 +29,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
 }
 
 .form h1 {
@@ -79,6 +78,8 @@ body {
 
 .perfil-form .input-group {
   margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .perfil-form form .input-group label {
