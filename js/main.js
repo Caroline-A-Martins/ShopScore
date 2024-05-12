@@ -91,7 +91,7 @@ async function melhoresLojas() {
 async function avaliacoesClientes() {
     var token = localStorage.getItem('token');
 
-    await axios.get(`https://shopscore-api.onrender.com/api/users?limit=5`, {
+    await axios.get(`https://shopscore-api.onrender.com/api/users?limit=4`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }

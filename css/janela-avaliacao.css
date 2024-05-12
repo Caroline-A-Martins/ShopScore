@@ -2,10 +2,9 @@
 
 * {
   font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
   list-style: none;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 /*variaveis*/
@@ -23,8 +22,7 @@
 
 .btn {
   padding: 5px 15px;
-  display: inline;
-  background-color: var(--main-color);
+  background: var(--main-color);
   border-radius: 10px;
   color: #fff;
   font-size: 1.5rem;
@@ -33,65 +31,48 @@
   position: fixed;
   right: 1rem;
   bottom: 10%;
-  z-index: 1;
-}
-
-.btn-modal {
-  color: #fff;
+  border: none;
 }
 
 .btn:hover {
-  background-color: var(--hover-main-color);
+  background: var(--hover-main-color);
 }
 
-.modal-container {
-  width: 100vw;
-  height: 100vh;
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+dialog {
+
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 1em rgb(0 0 0 / .3);
   position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #0000008c;
-  z-index: 999;
   align-items: center;
   justify-content: center;
-  display: none;
-}
-
-.modal {
-  width: 70%;
-  max-width: 500px;
-  min-height: 250px;
   background-color: #ffffff62;
   backdrop-filter: blur(10px);
-  padding: 50px;
-  border-radius: 10px;
+  z-index: 1;
+  padding: 15px;
 }
 
-.fechar {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: none;
-  background-color: var(--main-color);
-  color: #fff;
-  font-weight: 700;
-  font-size: 14pt;
-  cursor: pointer;
-}
 
+<<<<<<< HEAD
 .modal h1 {
   margin-bottom: 20px;
 }
 
 form .input-group label {
+=======
+label {
+>>>>>>> 6a0234bd82ca933304d0603703e5df54f52b226c
   color: var(--text-color);
   display: block;
-  margin-bottom: 5px;
+  margin-right: 10px;
 }
 
+<<<<<<< HEAD
 
 
 .form-group .input {
@@ -100,53 +81,46 @@ form .input-group label {
 
 form .input-group input,
 form .input-group select {
+=======
+input,
+select {
+>>>>>>> 6a0234bd82ca933304d0603703e5df54f52b226c
   width: 100%;
-  height: 15px;
-  border-radius: 10px;
+  height: 10px;
+  border-radius: 5px;
   outline: none;
-  border: 2px solid transparent;
-  padding: 15px;
   font-size: 15px;
   transition: all 0.4s ease;
   font-weight: 400;
-  margin-bottom: 20px;
+  border: none;
+  padding: 15px 0;
+  background-color: var(--input-color);
 }
 
-#inputLoja {
-  display: none;
+input[type="file"] {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 15px;
+  transition: all 0.4s ease;
+  font-weight: 400;
+  border: none;
+  padding: 15px 0;
+  background-color: var(--input-color);
 }
 
-.input-group textarea {
+textarea {
   width: 100%;
   height: 100px;
-  border-radius: 10px;
+  border-radius: 5px;
   outline: none;
-  border: 2px solid transparent;
-  padding: 5px;
   font-size: 15px;
   transition: all 0.4s ease;
   font-weight: 400;
   resize: none;
-}
-
-@keyframes animate-modal {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -20px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.modal-container.mostrar {
-  display: flex;
-}
-
-.mostrar .modal {
-  animation: animate-modal 0.3s;
+  border: none;
+  background-color: var(--input-color);
 }
 
 .avaliacao {
@@ -158,7 +132,13 @@ form .input-group select {
   list-style-type: none;
   cursor: pointer;
   color: var(--main-color);
-  font-size: 60px;
+  font-size: 50px;
+}
+
+.upload-icon {
+  font-size: 50px;
+  color: var(--main-color);
+  cursor: pointer;
 }
 
 .star-icon::before {
@@ -177,12 +157,11 @@ form .input-group select {
   content: "\2606";
 }
 
-.input-group .btn-enviar {
+.btn-enviar {
   display: block;
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
   height: 50px;
-  padding: 5px 15px;
   background-color: var(--main-color);
   border-radius: 10px;
   color: #fff;
@@ -190,30 +169,52 @@ form .input-group select {
   cursor: pointer;
   border: none;
   box-shadow: var(--box-shadow);
+  font-weight: 600;
 }
 
 .icon-wrapper {
-  display: inline-flex;
   align-items: center;
-  margin-left: 5px;
   border-radius: 5px;
   border: none;
   background-color: var(--main-color);
-}
-
-.text {
-  padding: 0 5px;
   color: white;
+  padding: 0 10px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .n-encontra {
   display: flex;
-  flex-direction: column;
-  padding: 10px 0;
 }
 
-#produto,
-#imagem,
-#descricao_prod {
+.oculto {
   display: none;
+}
+
+.visivel {
+  display: block;
+}
+
+.fechar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.fechar:hover {
+  background-color: var(--hover-main-color);
+}
+
+.container-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 144px;
 }
