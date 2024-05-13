@@ -15,7 +15,7 @@
 :root {
     --main-color: #223555;
     --hover-main-color: #18263d;
-    --second-color: #768dc2;
+    --second-color: #c6d4f5;
     --text-color: #1b1b1b;
     --bg-color: #ebeae8;
     --light-blue-color: #c4ddff;
@@ -214,7 +214,7 @@ header.shadow {
         background: var(--second-color);
         row-gap: 1.4rem;
         padding: 20px;
-        transition: .3s;
+        transition: .1s;
         text-align: center;
     }
 
