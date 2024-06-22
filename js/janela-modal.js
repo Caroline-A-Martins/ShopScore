@@ -7,6 +7,7 @@ async function getProdutos() {
         const lojasSelect = $('#lojas-select').val();
         const token = localStorage.getItem('token');
         const produtosSelectize = $('#produtos-select')[0].selectize;
+        console.log(produtosSelectize)
         produtosSelectize.clearOptions();
 
         const response = await axios.get(`https://shopscore-api.onrender.com/api/products/stores/${lojasSelect}`, {
@@ -85,3 +86,11 @@ async function getLojas() {
         console.error('Erro ao buscar lojas:', error);
     }
 }
+
+$(document).ready(function () {
+    $('#produtos-select').selectize({
+        create: false,
+        sortField: 'text',
+        placeholder: 'Selecione um produto'
+    });
+});

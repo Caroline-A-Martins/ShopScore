@@ -118,11 +118,6 @@ h1  {
     color: red;
 }
 
-.formulario-comentario{
-    display: none;
-}
-
-
 @media only screen and (min-width: 1024px) {
     .card-ft img {
         max-width: 120px;

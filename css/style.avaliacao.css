@@ -170,6 +170,10 @@ body {
 
 }
 
+.hidden {
+    display: none;
+}
+
 
 
 /*Final Feed*/

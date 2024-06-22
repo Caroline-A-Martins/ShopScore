@@ -6,6 +6,12 @@ async function avaliacoes() {
 
     const query = type == 'store' ? `&idstore=${localStorage.getItem('id')}` : '';
 
+    if (type === 'user') {
+        var modalBtn = document.getElementById('modal-btn');
+
+        modalBtn.classList.remove('hidden');
+    }
+
     await axios.get(`https://shopscore-api.onrender.com/api/evaluations?search=${search}${query}&limit=30`, {
         headers: {
             'Authorization': `Bearer ${token}`
